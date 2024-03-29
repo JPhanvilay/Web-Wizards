@@ -7,6 +7,18 @@ document.getElementById("sidebarIcon").addEventListener("click", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Show the modal
+  document.getElementById("letterModal").classList.remove("hidden");
+
+  // Close modal functionality
+  document
+    .getElementById("closeModalButton")
+    .addEventListener("click", function () {
+      document.getElementById("letterModal").classList.add("hidden");
+    });
+});
+
 const questionElement = document.getElementById("question");
 const questionText = "Which house do you belong to?";
 

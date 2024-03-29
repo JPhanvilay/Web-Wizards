@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Wizard</title>
+
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       rel="stylesheet"
@@ -26,6 +27,7 @@
           <i class="fa fa-bars"></i>
         </button>
         <a href="/" class="text-xl font-bold mx-auto">Web Wizard</a>
+
         <ul class="flex space-x-4">
           <li>
             <a href="/quidditch-weather" class="hover:text-yellow-100"
@@ -63,8 +65,32 @@
         </div>
       </nav>
     </header>
-    <div id="LetterModal" class="fixed z-10 inset-0 overflow-y auto hidden">
-      <div class="bg-white"></div>
+    <div id="letterModal" class="fixed z-10 inset-0 overflow-y auto hidden">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-white p-8 rounded-md shadow-md max-w-md">
+          <!-- Modal Header -->
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-semibold">Web Wizards Acceptance Letter</h2>
+            <button
+              id="closeModalButton"
+              class="text-gray-500 hover:text-gray-700 focus: outline-none"
+            >
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+          <p class="mb-4">Dear Wizard,</p>
+          <p class="mb-4">
+            We are pleased to inform you that you have been accepted at Web
+            Wizard App. Please check out all the things you can do at the
+            webpage.
+          </p>
+          <p class="mb-4">
+            Term begins right now. but you have a little time to send your owl.
+          </p>
+          <p>Your sincerely,</p>
+          <p>Web Wizards Application</p>
+        </div>
+      </div>
     </div>
     <div
       id="questionContainer"
