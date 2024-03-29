@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Wizard</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat"
+    style="background-image: url('images/image.png')"
+  >
+    <header>
+      <nav
+        class="bg-purple-900 text-yellow-300 p-4 flex items-center justify-between"
+      >
+        <!-- Sidebar Icon -->
+        <button id="sidebarIcon" class="text-4xl">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a href="/" class="text-xl font-bold mx-auto">Web Wizard</a>
+        <ul class="flex space-x-4">
+          <li>
+            <a href="/quidditch-weather" class="hover:text-yellow-100"
+              >Quidditch Weather</a
+            >
+          </li>
+          <li><a href="/spells" class="hover:text-yellow-100">Spells</a></li>
+          <li>
+            <a href="/characters" class="hover:text-yellow-100">Characters</a>
+          </li>
+          <li>
+            <a href="/sorting-hat" class="hover:text-yellow-100">Sorting Hat</a>
+          </li>
+        </ul>
+        <!-- Dropdown Menu -->
+        <div
+          id="dropdownMenu"
+          class="hidden absolute left-0 mt-2 w-48 bg-white shadow-md"
+        >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >Link 1</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >Link 2</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >Link 3</a
+          >
+        </div>
+      </nav>
+    </header>
+    <div id="LetterModal" class="fixed z-10 inset-0 overflow-y auto hidden">
+      <div class="bg-white"></div>
+    </div>
+    <div
+      id="questionContainer"
+      class="flex justify-center items-center h-screen"
+    >
+      <div>
+        <h1
+          id="question"
+          class="glow-text text-5xl font-bold mb-4 text-red-500"
+        >
+          Which house do you belong to?
+        </h1>
+        <input
+          id="houseInput"
+          type="text"
+          placeholder="Gryffindor, Hufflepuff, Ravenclaw, Slytherin"
+          class="px-4 py-2 bg-black text-white border border-gray-300 rounded-md mb-4"
+        />
+        <button
+          onclick="checkHouse()"
+          class="px-4 py-2 bg-purple-500 text-white"
+        >
+          Submit
+        </button>
+        <p id="sortingHatSuggestion" class="hidden text-red-500"></p>
+      </div>
+    </div>
+    <script src="assets/javascript/script.js"></script>
+  </body>
 </html>
