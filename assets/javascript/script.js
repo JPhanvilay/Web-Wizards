@@ -45,6 +45,45 @@ function checkHouse() {
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
 }
+// Function to pick a random spell
+function randomSpell(){
+  const spellsUrl = "https://api.potterdb.com/v1/spells/";
+
+  fetch(spellsUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (spellsObj) {
+
+      let data = spellsObj.data;
+
+      randomSpell = (data[Math.floor(Math.random()*data.length)]);
+
+      const cardEl = document.getElementById("card");
+      const spell = {
+        name: randomSpell.attributes.name,
+        category: randomSpell.attributes.category,
+        effect: randomSpell.attributes.effect,
+        incantation: randomSpell.attributes.incantation,
+        light: randomSpell.attributes.light,
+        wiki: randomSpell.attributes.wiki,
+        image: randomSpell.attributes.image,
+      }
+      console.log(spell);
+      for (let key in spell){
+        if(spell.hasOwnProperty(key)){
+          value = spell[key];
+          let list = document.createElement("ul");
+          cardEl.append(list);
+          if(value !== null){
+            cardEl.append(`${key}: ${value}`);
+          }
+        }
+      }
+    });
+}
+
+randomSpell();
 
 document.addEventListener("DOMContentLoaded", function () {
   animateText();
