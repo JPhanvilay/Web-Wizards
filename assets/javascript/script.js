@@ -44,6 +44,7 @@ function checkHouse() {
 
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
+  randomSpell();
 }
 // Function to pick a random spell
 function randomSpell(){
@@ -61,29 +62,31 @@ function randomSpell(){
 
       const cardEl = document.getElementById("card");
       const spell = {
-        name: randomSpell.attributes.name,
-        category: randomSpell.attributes.category,
-        effect: randomSpell.attributes.effect,
-        incantation: randomSpell.attributes.incantation,
-        light: randomSpell.attributes.light,
-        wiki: randomSpell.attributes.wiki,
-        image: randomSpell.attributes.image,
+        Name: randomSpell.attributes.name,
+        Category: randomSpell.attributes.category,
+        Effect: randomSpell.attributes.effect,
+        Incantation: randomSpell.attributes.incantation,
+        Light: randomSpell.attributes.light,
+        Wiki: randomSpell.attributes.wiki,
+        Image: randomSpell.attributes.image,
       }
       console.log(spell);
       for (let key in spell){
         if(spell.hasOwnProperty(key)){
           value = spell[key];
-          let list = document.createElement("ul");
-          cardEl.append(list);
+          // let list = document.createElement("li");
+          // cardEl.append(list);
           if(value !== null){
-            cardEl.append(`${key}: ${value}`);
+            const descriptionEl = $("#description");
+            let list = document.createElement("li");
+            descriptionEl.append(list);
+            descriptionEl.append(`${key}: ${value}`);
           }
         }
       }
     });
 }
 
-randomSpell();
 
 document.addEventListener("DOMContentLoaded", function () {
   animateText();
