@@ -1,9 +1,10 @@
-const weatherApiRootUrl = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m";
+const weatherApiRootUrl = 'http://api.weatherapi.com/v1';
+const weatherApiKey = "3c3e4ada2fb7479196221639240204";
 const searchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
 
 
 const todayWeather = document.querySelector('#today');
-const sevenDayForecast = document.querySelector('#forecast');
+const fiveDayForecast = document.querySelector('#forecast');
 const searchHistoryContainer = document.querySelector('#history');
 const citySearchBtn = document.querySelector('#searched-cities');
 
@@ -14,7 +15,7 @@ function renderSearchHistory() {
     for (let i = searchHistory.length - 1; i >= 0; i--) {
         const citySearchBtn = document.createElement('button');
         citySearchBtn.setAttribute('type', 'button');
-        citySearchBtn.setAttribute('aria-controls', 'todaysWeather');
+        citySearchBtn.setAttribute('aria-controls', 'todayForecast');
         citySearchBtn.classList.add('history-citySearchBtn', 'citySearchBtn-history');
 
         citySearchBtn.setAttribute('data-search', searchHistory[i]);
@@ -39,9 +40,9 @@ async function searchCity(city) {
     console.log(city);
     try {
 
-        const response = await fetch(`${weatherApiRootUrl}/data/2.5/weather?q=${city}&units=imperial&appid`)
+        const response = await fetch(`${weatherApiRootUrl}/data/2.5/weather?q=${city}&units=imperial&appid=${weatherApiKey}`)
         const data = await response.json()
-        //console.log(data)
+        console.log(data)
         const icon = data.weather[0].icon
         //const url = 
         const todayWeather = `
@@ -55,27 +56,27 @@ async function searchCity(city) {
         
         `;
 
-        todayWeather.innerHTML = todayWeather
+        todayForecast.innerHTML = todayWeather
         const lat = data.coord.lat
         const lon = data.coord.lon
 
 
-        const sevenDayResponse = await fetch(
-            `${weatherApiRootUrl}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid`
+        const fiveDayResponse = await fetch(
+            `${weatherApiRootUrl}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${weatherApiKey}`
         )
-        const sevenDayData = await sevenDayResponse.json()
+        const fiveDayData = await fiveDayResponse.json()
 
-        const filteredArray = sevenDayData.list.filter((day) => day.dt_txt.includes("12:00:00"))
+        const filteredArray = fiveDayData.list.filter((day) => day.dt_txt.includes("12:00:00"))
         console.log(filteredArray)
 
-        let sevenDayCard = ""
+        let fiveDayCard = ""
 
         filteredArray.forEach((day) => {
             console.log(day)
             let date = new Date(day.dt_txt).toLocaleDateString().split(",")[0]
             //const fiveIcon = data.weather[0].icon
             //const fiveUrl =
-            sevenDayCard += `
+            fiveDayCard += `
             <div> 
             <h3>${date}</h3>
             <p>temp: ${day.main.temp}</p>
@@ -84,7 +85,7 @@ async function searchCity(city) {
         </div>
             
             `;
-            sevenDayForecast.innerHTML = sevenDayCard
+            fiveDayForecast.innerHTML = fiveDayCard
         })
     } catch (error) {
         console.error("error fetching data", error)
