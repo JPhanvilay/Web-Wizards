@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/weather.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Flying Conditions</h1>
+    </header>
+
+    <main>
+        <div class="page">
+            <div id="sidebar">
+                <h2>Where are you flying today?</h2>
+                <p>* search for weather conditions in the muggle lands too! *</p>
+                <form id="searched-cities"></form>
+                <input type="text" id="searchInput" placeholder="Search"></input>
+                <button type="submit">Search</button>
+            </div>
+            <div class="searchHistoryContainer" id="history"></div>
+        </div>
+    </main>
+    <section class="todayForecast" id="today">
+        <h3>Today's Forecast:</h3>
+    </section>
+    <section class="sevenDayForecast" id="forecast">
+        <h4>Seven Day Forecast:</h4>
+    </section>
+    <script src="./assets/javascript/weather.js"></script>
+</body>
+
+</html>
