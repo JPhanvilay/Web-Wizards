@@ -44,39 +44,50 @@ async function searchCity(city) {
         const response = await fetch(`${weatherCurrentUrl}&q=${city}`)
         const data = await response.json()
         console.log(data)
+        const parsedData = {
+            name: data.location.name,
+            temp_f: data.current.temp_f,
+            wind: data.current.wind_mph,
+            humidity: data.current.humidity
+        }
+        return parsedData
 
-        const todayWeather = `
-        <div> 
-            <h3>${data.name}</h3>
-            <p>temp_f: ${data.main.temp}</p>
-            <p>humidity: ${data.main.humidity}</p>
-            <p>wind-speed: ${data.wind.speed}</p>
-        </div>
 
-        `;
-
-        todayforecast.innerHTML = todayWeather
     }
     catch (error) {
         console.error("error fetching data", error)
     }
 }
 
-async function searchCity(city) {
+async function searchForecast(city) {
     console.log(city);
     try {
 
         const fiveDayresponse = await fetch(`${weatherForecastUrl}&q=${city}&days=5`)
         const fiveDayData = await fiveDayresponse.json()
         const filteredArray = fiveDayData.forecast.forecastday
-        console.log(filteredArray)
+        return filteredArray
     }
     catch (error) {
         console.error("error fetching data", error)
     }
 }
 
-citySearchBtn.addEventListener('click', function (event) {
+function renderTodayForecast(data) {
+    const weatherHtml = `
+        <div> 
+            <h3>${data.name}</h3>
+            <p>temp_f: ${data.temp_f}</p>
+            <p>humidity: ${data.humidity}</p>
+            <p>wind-speed: ${data.wind}</p>
+        </div>
+
+        `;
+
+    todayWeather.innerHTML = weatherHtml
+}
+
+citySearchBtn.addEventListener('click', async function (event) {
     console.log("working");
     event.preventDefault();
     const searchedEl = document.querySelector('#searchInput').value.trim();
@@ -85,6 +96,10 @@ citySearchBtn.addEventListener('click', function (event) {
         return;
     }
 
-    searchCity(searchedEl)
+    const cityData = await searchCity(searchedEl)
+    renderTodayForecast(cityData)
+    console.log(cityData)
+    const forecastArray = await searchForecast(searchedEl)
+    console.log(forecastArray)
     appendToHistory(searchedEl);
 });
