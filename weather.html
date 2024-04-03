@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/weather.css">
+    <link
+      href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./assets/css/weather.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-cover bg-no-repeat" style="background-image: url('assets/images/broomstick.png')">  
     <header>
-        <h1>Flying Conditions</h1>
+        <h1 class="text-lg">Flying Conditions</h1>
     </header>
 
     <main>
@@ -21,7 +24,7 @@
                 <p>* search for weather conditions in the muggle lands too! *</p>
                 <form id="searched-cities"></form>
                 <input type="text" id="searchInput" placeholder="Search"></input>
-                <button type="submit">Search</button>
+                <button type="submit" class="btn'">Search</button>
             </div>
             <div class="searchHistoryContainer" id="history"></div>
         </div>

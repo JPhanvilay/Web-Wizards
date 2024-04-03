@@ -105,3 +105,5 @@ citySearchBtn.addEventListener('submit', function (event) {
     searchCity(searchedEl)
     appendToHistory(searchedEl);
 });
+
+// https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=YOUR_API_KEY
