@@ -1,11 +1,28 @@
 body {
-    font-family: "Fira Sans", sans-serif;
+  /* font-family: "Dancing Script";
+  font-weight: bold; */
+  font-family:Arial, Helvetica, sans-serif;
 }
 
-.spell{
-    width: 100%;
-    display: inline-block;
-    margin-left: 20px;
-    background-color: black;
-    color:white; 
+.spell {
+  /* display:inline-block; */
+  /* flex-direction: row;
+  width: 100%;
+  margin-left: 20px; */
+  background-color: white;
+  color: black;
+}
+
+#image-spell {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* #description{
+  color: black;
+  font-weight:bolder;
+} */
+
+#thicker{
+  font-weight:900;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Wizard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap" rel="stylesheet" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       rel="stylesheet"
@@ -12,7 +13,7 @@
       href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
   </head>
   <body
     class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat"
@@ -94,10 +95,17 @@
       </div>
     </div>
     <!-- RandomSpell -->
-    <div class = "spell">
-      <div id = "card">
-        <h2 class = "text-4xl text-center font-bolder">Spell of the Day</h2>
-        <ul id = "description"></ul>
+    <div class="flex-1 mb-16 mt-8 spell ">
+      <h1 class="text-4xl text-center font-bolder"id="header"></h1>
+      <div id="card" class="flex justify-center">
+        <div class="grid lg:grid-cols-2 md:w-2/3 mt-5 p-5 border-2 border-gray-200 rounded-lg">
+          <div class="p-3 flex flex-col items-center justify-center" id = "image"></div>
+          <div class = "p-3">
+            <div>
+              <div class="text-black text-left" id="description"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -1,3 +1,8 @@
+const descriptionEl = $("#description");
+const cardEl = $("#card");
+const headerEl = document.getElementById("header");
+const imageEl = document.getElementById("image");
+
 document.getElementById("sidebarIcon").addEventListener("click", function () {
   let dropdown = document.getElementById("dropdownMenu");
   if (dropdown.classList.contains("hidden")) {
@@ -46,48 +51,71 @@ function checkHouse() {
   }
   randomSpell();
 }
+
 // Function to pick a random spell
-function randomSpell(){
+function randomSpell() {
   const spellsUrl = "https://api.potterdb.com/v1/spells/";
 
   fetch(spellsUrl)
     .then(function (response) {
-        return response.json();
+      return response.json();
     })
     .then(function (spellsObj) {
-
       let data = spellsObj.data;
 
-      randomSpell = (data[Math.floor(Math.random()*data.length)]);
+      randomSpell = data[Math.floor(Math.random() * data.length)];
 
-      const cardEl = document.getElementById("card");
+      // const spellDayEl = $("#spellday");
+      // spellDayEl.textContent = ("Random Spell");
+      
+      headerEl.textContent = randomSpell.attributes.name;
+  
       const spell = {
         Name: randomSpell.attributes.name,
         Category: randomSpell.attributes.category,
         Effect: randomSpell.attributes.effect,
         Incantation: randomSpell.attributes.incantation,
         Light: randomSpell.attributes.light,
-        Wiki: randomSpell.attributes.wiki,
-        Image: randomSpell.attributes.image,
+        // Wiki: randomSpell.attributes.wiki,
+        // Image: randomSpell.attributes.image,
+      };
+
+      if (randomSpell.attributes.image !== null) {
+        const imgEl = document.createElement("img");
+        imageEl.append(imgEl);
+        imgEl.setAttribute("id", "image-spell");
+        imgEl.setAttribute("class", "float-left");
+        imgEl.setAttribute("src", randomSpell.attributes.image);
       }
-      console.log(spell);
-      for (let key in spell){
-        if(spell.hasOwnProperty(key)){
+
+      for (let key in spell) {
+        if (spell.hasOwnProperty(key)) {
           value = spell[key];
-          // let list = document.createElement("li");
-          // cardEl.append(list);
-          if(value !== null){
-            const descriptionEl = $("#description");
+          if (value !== null) {
             let list = document.createElement("li");
+            list.textContent = `${key}: ${value}`;
             descriptionEl.append(list);
-            descriptionEl.append(`${key}: ${value}`);
           }
         }
       }
+      const linkEl = document.createElement("a");
+      descriptionEl.append(linkEl);
+      linkEl.setAttribute("href", randomSpell.attributes.wiki);
+      linkEl.setAttribute("id","thicker");
+      linkEl.textContent = "Wikilink";
+
     });
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   animateText();
 });
+
+{/* <div class="flex spell opacity-100">
+<div id="card" class="flex">
+  <h2 class="text-4xl text-center font-bolder" id="spellday">
+    Random Spell
+    <ul id="description"></ul>
+  </h2>
+</div>
+</div> */}
