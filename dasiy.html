@@ -8,41 +8,29 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Document</title>
 </head>
 
-<body>
+<body class="font-dancing-script">
     <header>
         <div class="hero min-h-screen bg-base-100"
             style="background-image: url(/Users/georgehernandez/daisy/flying.png)">
             <div class="hero-content text-center">
                 <div class="max-w-md">
-                    <h1 class="text-5xl font-bold">Hello there</h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-                        exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button class="btn btn-primary">Get Started</button>
+                    <h1 class="text-8xl font-bold-lg text-white">Hello there,</h1>
+                    <p class="text-white font-bold-lg text-2xl">Use the search feature to check the flying conditions locally or 
+                        globally. Safe travels!
+                    </p>
+                    <!-- <button class="btn btn-primary">Get Started</button> -->
                 </div>
             </div>
         </div>
     </header>
     <nav>
         <div class="navbar bg-base-100">
-            <div class="flex-1">
-                <a class="btn btn-ghost text-xl">Flying Conditions</a>
-            </div>
-            <div class="flex-none gap-2">
-                <div class="form-control">
-                    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                </div>
-                <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                        <div class="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="flying.png" class="scale-200 rounded-full" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a class="btn btn-ghost text-xl">Flying Conditions</a>
+            <button class="btn btn-warning">Back</button>
         </div>
     </nav>
     <main>
@@ -61,7 +49,7 @@
 
 
 
-    <script src="./assets/script.js"></script>
+    <script src="./assets/weather.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
 

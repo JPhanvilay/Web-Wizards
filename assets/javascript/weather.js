@@ -1,20 +1,21 @@
-const weatherApiRootUrl = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m";
+const weatherCurrentUrl = 'http://api.weatherapi.com/v1/current.json?key=c499ece443144aa190b192241240204';
+const weatherForecastUrl = 'http://api.weatherapi.com/v1/forecast.json?key=c499ece443144aa190b192241240204';
 const searchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
 
-
 const todayWeather = document.querySelector('#today');
-const sevenDayForecast = document.querySelector('#forecast');
+const fiveDayForecast = document.querySelector('#forecast');
 const searchHistoryContainer = document.querySelector('#history');
-const citySearchBtn = document.querySelector('#searched-cities');
+const citySearchBtn = document.querySelector('#searchButton');
+console.log(citySearchBtn)
 
-//History Display Functionality:
+
 function renderSearchHistory() {
     searchHistoryContainer.innerHTML = "";
 
     for (let i = searchHistory.length - 1; i >= 0; i--) {
         const citySearchBtn = document.createElement('button');
         citySearchBtn.setAttribute('type', 'button');
-        citySearchBtn.setAttribute('aria-controls', 'todaysWeather');
+        citySearchBtn.setAttribute('aria-controls', 'todayForecast');
         citySearchBtn.classList.add('history-citySearchBtn', 'citySearchBtn-history');
 
         citySearchBtn.setAttribute('data-search', searchHistory[i]);
@@ -23,6 +24,7 @@ function renderSearchHistory() {
 
     }
 }
+
 renderSearchHistory();
 
 function appendToHistory(search) {
@@ -39,71 +41,65 @@ async function searchCity(city) {
     console.log(city);
     try {
 
-        const response = await fetch(`${weatherApiRootUrl}/data/2.5/weather?q=${city}&units=imperial&appid`)
+        const response = await fetch(`${weatherCurrentUrl}&q=${city}`)
         const data = await response.json()
-        //console.log(data)
-        const icon = data.weather[0].icon
-        //const url = 
-        const todayWeather = `
-        <div> 
-            <h3>${data.name}</h3>
-            <p>temp: ${data.main.temp}</p>
-            <p>humidity: ${data.main.humidity}</p>
-            <p>wind-speed: ${data.wind.speed}</p>
-            <img src = "${url}"/>
-        </div>
-        
-        `;
-
-        todayWeather.innerHTML = todayWeather
-        const lat = data.coord.lat
-        const lon = data.coord.lon
+        console.log(data)
+        const parsedData = {
+            name: data.location.name,
+            temp_f: data.current.temp_f,
+            wind: data.current.wind_mph,
+            humidity: data.current.humidity
+        }
+        return parsedData
 
 
-        const sevenDayResponse = await fetch(
-            `${weatherApiRootUrl}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid`
-        )
-        const sevenDayData = await sevenDayResponse.json()
-
-        const filteredArray = sevenDayData.list.filter((day) => day.dt_txt.includes("12:00:00"))
-        console.log(filteredArray)
-
-        let sevenDayCard = ""
-
-        filteredArray.forEach((day) => {
-            console.log(day)
-            let date = new Date(day.dt_txt).toLocaleDateString().split(",")[0]
-            //const fiveIcon = data.weather[0].icon
-            //const fiveUrl =
-            sevenDayCard += `
-            <div> 
-            <h3>${date}</h3>
-            <p>temp: ${day.main.temp}</p>
-            <p>humidity: ${day.main.humidity}</p>
-            <p>wind-speed: ${day.wind.speed}</p>
-        </div>
-            
-            `;
-            sevenDayForecast.innerHTML = sevenDayCard
-        })
-    } catch (error) {
+    }
+    catch (error) {
         console.error("error fetching data", error)
     }
 }
 
+async function searchForecast(city) {
+    console.log(city);
+    try {
 
+        const fiveDayresponse = await fetch(`${weatherForecastUrl}&q=${city}&days=5`)
+        const fiveDayData = await fiveDayresponse.json()
+        const filteredArray = fiveDayData.forecast.forecastday
+        return filteredArray
+    }
+    catch (error) {
+        console.error("error fetching data", error)
+    }
+}
 
-citySearchBtn.addEventListener('submit', function (event) {
+function renderTodayForecast(data) {
+    const weatherHtml = `
+        <div> 
+            <h3>${data.name}</h3>
+            <p>temp_f: ${data.temp_f}</p>
+            <p>humidity: ${data.humidity}</p>
+            <p>wind-speed: ${data.wind}</p>
+        </div>
+
+        `;
+
+    todayWeather.innerHTML = weatherHtml
+}
+
+citySearchBtn.addEventListener('click', async function (event) {
+    console.log("working");
     event.preventDefault();
     const searchedEl = document.querySelector('#searchInput').value.trim();
     if (!searchedEl) {
         console.error('You need a search input value!');
         return;
     }
-    console.log("working");
 
-    searchCity(searchedEl)
+    const cityData = await searchCity(searchedEl)
+    renderTodayForecast(cityData)
+    console.log(cityData)
+    const forecastArray = await searchForecast(searchedEl)
+    console.log(forecastArray)
     appendToHistory(searchedEl);
 });
-
-// https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK?key=YOUR_API_KEY
