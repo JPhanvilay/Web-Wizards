@@ -10,9 +10,18 @@
       rel="stylesheet"
     />
     <link
-      href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css"
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap"
       rel="stylesheet"
     />
+    <!-- <link href="https://fonts.cdnfonts.com/css/agrish" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/harry-p" rel="stylesheet" /> -->
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body
     class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat"
@@ -24,7 +33,7 @@
       >
         <!-- Sidebar Icon -->
         <button id="sidebarIcon" class="text-4xl">
-          <i class="fa fa-bars"></i>
+          <i class="fa-solid fa-hat-wizard"></i>
         </button>
         <a href="/" class="text-xl font-bold mx-auto">Web Wizard</a>
 
@@ -34,10 +43,33 @@
               >Quidditch Weather</a
             >
           </li>
-          <li><a href="/spells" class="hover:text-yellow-100">Spells</a></li>
-          <li>
-            <a href="/characters" class="hover:text-yellow-100">Characters</a>
-          </li>
+        </ul>
+        <div class="dropdown" id="spellsDropdown">
+          <div tabindex="0" role="button" class="btn m-1" id="spellsBtn">
+            Spells
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            id="spellsList"
+          >
+            <!-- Spells Items -->
+          </ul>
+        </div>
+
+        <div class="dropdown" id="charactersDropdown">
+          <div tabindex="0" role="button" class="btn m-1" id="charactersBtn">
+            Characters
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            id="charactersList"
+          >
+            <!-- Characters Items -->
+          </ul>
+        </div>
+        <ul>
           <li>
             <a href="/sorting-hat" class="hover:text-yellow-100">Sorting Hat</a>
           </li>
@@ -65,33 +97,44 @@
         </div>
       </nav>
     </header>
-    <div id="letterModal" class="fixed z-10 inset-0 overflow-y auto hidden">
+    <div id="letterModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
       <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white p-8 rounded-md shadow-md max-w-md">
-          <!-- Modal Header -->
-          <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-semibold">Web Wizards Acceptance Letter</h2>
-            <button
-              id="closeModalButton"
-              class="text-gray-500 hover:text-gray-700 focus: outline-none"
+        <div class="relative">
+          <!-- Modal Background Image -->
+          <div class="absolute inset-0 bg-cover bg-no-repeat">
+            <!-- Modal Content -->
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-900"
+              style="background-image: url('images/parchment.png')"
             >
-              <i class="fa fa-times"></i>
-            </button>
+              <h2 class="text-2xl font-semibold mb-4">
+                Web Wizards Acceptance Letter
+              </h2>
+              <p class="mb-4">Dear Wizard,</p>
+              <p class="mb-4">
+                We are pleased to inform you that you have been accepted at Web
+                Wizard App. Please check out all the things you can do at the
+                webpage.
+              </p>
+              <p class="mb-4">
+                Term begins right now. but you have a little time to send your
+                owl.
+              </p>
+              <p>Your sincerely,</p>
+              <p>Web Wizards Application</p>
+              <button
+                id="closeModalButton"
+                class="text-gray-500 hover:text-gray-700 focus:outline-none mt-4"
+              >
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
           </div>
-          <p class="mb-4">Dear Wizard,</p>
-          <p class="mb-4">
-            We are pleased to inform you that you have been accepted at Web
-            Wizard App. Please check out all the things you can do at the
-            webpage.
-          </p>
-          <p class="mb-4">
-            Term begins right now. but you have a little time to send your owl.
-          </p>
-          <p>Your sincerely,</p>
-          <p>Web Wizards Application</p>
         </div>
       </div>
     </div>
+    <!-- main content -->
+    <div id="dataContainer" class="container mx-auto px-4"></div>
     <div
       id="questionContainer"
       class="flex justify-center items-center h-screen"
@@ -118,6 +161,7 @@
         <p id="sortingHatSuggestion" class="hidden text-red-500"></p>
       </div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/javascript/script.js"></script>
   </body>
 </html>

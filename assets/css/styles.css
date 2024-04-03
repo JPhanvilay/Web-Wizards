@@ -1,0 +1,16 @@
+/* @import url("https://fonts.cdnfonts.com/css/agrish");
+@import url("https://fonts.cdnfonts.com/css/harry-p"); */
+
+p {
+  font-family: "Dancing Script";
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "Dancing Script";
+  font-weight: bold;
+}
+
+#letterModal .bg-cover {
+  background-size: cover;
+}

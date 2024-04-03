@@ -1,12 +1,3 @@
-document.getElementById("sidebarIcon").addEventListener("click", function () {
-  let dropdown = document.getElementById("dropdownMenu");
-  if (dropdown.classList.contains("hidden")) {
-    dropdown.classList.remove("hidden");
-  } else {
-    dropdown.classList.add("hidden");
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   // Show the modal
   document.getElementById("letterModal").classList.remove("hidden");
@@ -16,7 +7,75 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("closeModalButton")
     .addEventListener("click", function () {
       document.getElementById("letterModal").classList.add("hidden");
+      animateText();
     });
+});
+
+// Fetch
+
+document.addEventListener("DOMContentLoaded", function () {
+  const spellsBtn = document.getElementById("spellsBtn");
+  const spellsList = document.getElementById("spellsList");
+  const charactersBtn = document.getElementById("charactersBtn");
+  const charactersList = document.getElementById("charactersList");
+  fetchSpells();
+  fetchCharacters();
+  // spellsBtn.addEventListener("click", function () {
+  //   spellsList.classList.toggle("hidden");
+  //   if (!spellsList.classList.contains("hidden")) {
+  //     fetchSpells();
+  //   }
+  // });
+
+  // charactersBtn.addEventListener("click", function () {
+  //   charactersList.classList.toggle("hidden");
+  //   if (!charactersList.classList.contains("hidden")) {
+  //     fetchCharacters();
+  //   }
+  // });
+});
+
+function fetchSpells() {
+  fetch("https://api.potterdb.com/v1/spells")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      populateDropdown(data, "spellsList");
+    })
+    .catch(error => console.error("Error fetching spells", error));
+}
+
+function fetchCharacters() {
+  fetch("https://api.potterdb.com/v1/characters")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      populateDropdown(data, "charactersList");
+    })
+    .catch(error => console.error("Error fetching characters", error));
+}
+
+function populateDropdown(data, dropdownId) {
+  console.log(data);
+  const dropdownList = document.getElementById(dropdownId);
+  dropdownList.innerHTML = "";
+  console.log(dropdownList);
+  data.data.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item.attributes.name;
+    li.className = "text-black";
+    dropdownList.appendChild(li);
+  });
+}
+
+// Navbar
+document.getElementById("sidebarIcon").addEventListener("click", function () {
+  let dropdown = document.getElementById("dropdownMenu");
+  if (dropdown.classList.contains("hidden")) {
+    dropdown.classList.remove("hidden");
+  } else {
+    dropdown.classList.add("hidden");
+  }
 });
 
 const questionElement = document.getElementById("question");
@@ -57,7 +116,3 @@ function checkHouse() {
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  animateText();
-});
