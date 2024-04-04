@@ -50,6 +50,5 @@ body {
 
 #houseInput,
 button {
-  /* Adjust the z-index as needed */
   z-index: 9999;
 }
