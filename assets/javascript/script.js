@@ -20,19 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const charactersList = document.getElementById("charactersList");
   fetchSpells();
   fetchCharacters();
-  // spellsBtn.addEventListener("click", function () {
-  //   spellsList.classList.toggle("hidden");
-  //   if (!spellsList.classList.contains("hidden")) {
-  //     fetchSpells();
-  //   }
-  // });
-
-  // charactersBtn.addEventListener("click", function () {
-  //   charactersList.classList.toggle("hidden");
-  //   if (!charactersList.classList.contains("hidden")) {
-  //     fetchCharacters();
-  //   }
-  // });
 });
 
 function fetchSpells() {
@@ -69,13 +56,27 @@ function populateDropdown(data, dropdownId) {
 }
 
 // Navbar
-document.getElementById("sidebarIcon").addEventListener("click", function () {
-  let dropdown = document.getElementById("dropdownMenu");
-  if (dropdown.classList.contains("hidden")) {
-    dropdown.classList.remove("hidden");
-  } else {
-    dropdown.classList.add("hidden");
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownMenu = document.querySelector(
+    ".dropdown-hover .dropdown-content"
+  );
+  const sidebarIcon = document.getElementById("sidebarIcon");
+
+  sidebarIcon.addEventListener("mouseenter", function () {
+    dropdownMenu.classList.remove("hidden");
+  });
+
+  sidebarIcon.addEventListener("mouseleave", function () {
+    dropdownMenu.classList.add("hidden");
+  });
+
+  dropdownMenu.addEventListener("mouseenter", function () {
+    dropdownMenu.classList.remove("hidden");
+  });
+
+  dropdownMenu.addEventListener("mouseleave", function () {
+    dropdownMenu.classList.add("hidden");
+  });
 });
 
 const questionElement = document.getElementById("question");
@@ -116,3 +117,50 @@ function checkHouse() {
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
 }
+
+function init() {
+  document.onmousemove = mousemove;
+}
+
+function mousemove(event) {
+  var mouse_x = event.clientX;
+  var mouse_y = event.clientY;
+
+  var fl = document.getElementById("flashlight");
+  fl.style.transform =
+    "translate(calc(" +
+    mouse_x +
+    "px - 50vw), " +
+    "calc(" +
+    mouse_y +
+    "px - 50vh))";
+}
+
+function init() {
+  document.onmousemove = mousemove;
+}
+
+function mousemove(event) {
+  var mouse_x = event.clientX;
+  var mouse_y = event.clientY;
+
+  var fl = document.getElementById("flashlight");
+  fl.style.transform =
+    "translate(calc(" +
+    mouse_x +
+    "px - 50vw), " +
+    "calc(" +
+    mouse_y +
+    "px - 50vh))";
+}
+
+init();
+
+var image = document.getElementById("cursor");
+
+// Add event listener for mouse move
+document.addEventListener("mousemove", function (event) {
+  // Set the image position to follow the cursor
+  image.style.left = event.pageX + "px";
+  image.style.top = event.pageY + "px";
+});
