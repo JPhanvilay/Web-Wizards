@@ -1,0 +1,41 @@
+#forecast {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+
+}
+
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 8px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.todayForecastContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#harry {
+    width: 100%;
+
+}
+
+.imageContainer {
+    max-width: 30rem;
+    min-width: 10rem;
+}
+
+.todayForecast {
+    max-width: 40rem;
+    min-width: 10rem;
+    padding: 5rem;
+    border-radius: 8px;
+    box-shadow: 8px 4px 4px rgba(0, 0, 0, 0.4);
+}

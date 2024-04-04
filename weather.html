@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://api.weatherapi.com/v1">
     </link>
+    <link rel="stylesheet" href="./assets/css/weather.css">
     <title>Document</title>
 </head>
 
@@ -26,11 +27,19 @@
             <div class="searchHistoryContainer" id="history"></div>
         </div>
     </main>
-    <section class="todayForecast" id="today">
-        <h3>Today's Forecast:</h3>
+    <section class="todayForecastContainer">
+        <div class="imageContainer">
+            <img id="harry" src="./assets/images/practicephoto.jpg" />
+        </div>
+        <section class="todayForecast">
+            <h3>Today's Forecast:</h3>
+            <section id="today"></section>
+        </section>
     </section>
-    <section class="fiveDayForecast" id="forecast">
+
+    <section class="fiveDayForecast">
         <h4>Five Day Forecast:</h4>
+        <div id="forecast"></div>
     </section>
     <script src="./assets/javascript/weather.js"></script>
 </body>
