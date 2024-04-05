@@ -1,13 +1,13 @@
 body {
-  /* font-family: "Dancing Script";
-  font-weight: bold; */
-  font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 .spell {
   background-image:none;
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 
 #image-spell {
   width:400px;
@@ -26,6 +26,3 @@ body {
   background-color:black;
 }
 
-/* #card{
-  
-} */

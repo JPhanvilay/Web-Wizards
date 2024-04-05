@@ -12,6 +12,9 @@ function potion(){
         .then(function(potionsObj){
             console.log(potionsObj);
         })
+        const potion = {
+            
+        }
 }
 
 potion();
