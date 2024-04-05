@@ -11,21 +11,33 @@
     <title>Document</title>
 </head>
 <body>
+<!-- hero image and headlines -->    
     <header>
         <div class="hero min-h-screen bg-base-100" style="background-image: url(potions.png)">
             <div class="hero-content text-center">
               <div class="max-w-md">
-                <h1 class="text-6xl font-bold outline-2">Need a potion?</h1>
-                <p class="py-6 text-5xl font-bold outline-2">Look no further!</p>
-                <p class="py-6 text-white-2xl font-bold outline-2">✨ Here are the top 5 potions used by wizards worldwide ✨</p>
+                <h1 class="text-6xl font-bold outline-2 text-white py-10">Need a potion?</h1>
+                <p class="py-8 text-5xl font-bold outline-2 text-white">Look no further!</p>
+                <p class="py-6 text-white font-bold outline-2 text-xl">✨ Here are the top 5 potions used by wizards worldwide ✨</p>
               </div>
             </div>
           </div>
         </div>
     </header>
+    <!-- potion cards -->
     <main class="mt-6">
         <div class="flex">
             <div class="card w-90 bg-base-100 shadow-xl">
+              <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div class="card-body">
+                  <h2 id="one" class="card-title">Potion Name Here</h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div class="card-actions justify-end">
+                 </div>
+            </div>
+          </div>
+          <div class="flex">
+            <div id="two" class="card w-90 bg-base-100 shadow-xl">
             <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
             <div class="card-body">
               <h2 class="card-title">Shoes!</h2>
@@ -35,7 +47,7 @@
             </div>
           </div>
           <div class="flex">
-            <div class="card w-90 bg-base-100 shadow-xl">
+            <div id="three" class="card w-90 bg-base-100 shadow-xl">
             <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
             <div class="card-body">
               <h2 class="card-title">Shoes!</h2>
@@ -45,7 +57,7 @@
             </div>
           </div>
           <div class="flex">
-            <div class="card w-90 bg-base-100 shadow-xl">
+            <div id="four" class="card w-90 bg-base-100 shadow-xl">
             <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
             <div class="card-body">
               <h2 class="card-title">Shoes!</h2>
@@ -55,26 +67,17 @@
             </div>
           </div>
           <div class="flex">
-            <div class="card w-90 bg-base-100 shadow-xl">
+            <div id="five" class="card w-90 bg-base-100 shadow-xl">
             <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
             <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions justify-end">
-              </div>
-            </div>
-          </div>
-          <div class="flex">
-            <div class="card w-90 bg-base-100 shadow-xl">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Shoes!</h2>
+              <h2 id="potionName" class="card-title"></h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div class="card-actions justify-end">
               </div>
             </div>
           </div>
     </main>
+    <script src="assets/javascript/potions.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>

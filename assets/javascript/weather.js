@@ -1,3 +1,4 @@
+
 const weatherCurrentUrl = 'http://api.weatherapi.com/v1/current.json?key=c499ece443144aa190b192241240204';
 const weatherForecastUrl = 'http://api.weatherapi.com/v1/forecast.json?key=c499ece443144aa190b192241240204';
 const searchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
