@@ -4,68 +4,137 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Wizard</title>
+
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       rel="stylesheet"
     />
     <link
-      href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css"
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body
     class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat"
-    style="background-image: url('images/image.png')"
+    style="background-image: url('images/back3.jpg')"
   >
+    <div id="flashlight"></div>
+    <div class="shadow"></div>
+    <img src="images/cursor3.png" id="cursor" alt="" srcset="" />
     <header>
       <nav
-        class="bg-purple-900 text-yellow-300 p-4 flex items-center justify-between"
+        <nav
+        class="text-yellow-300 p-4 flex items-center justify-between"
+        style="background-color: transparent"
       >
         <!-- Sidebar Icon -->
-        <button id="sidebarIcon" class="text-4xl">
-          <i class="fa fa-bars"></i>
-        </button>
+        <div class="dropdown dropdown-hover">
+          <button id="startQuizButton" class="text-4xl focus:outline-none">
+            <i id="sidebarIcon" class="fa-solid fa-hat-wizard"></i>
+          </button>
+        </div>
         <a href="/" class="text-xl font-bold mx-auto">Web Wizard</a>
+
         <ul class="flex space-x-4">
           <li>
             <a href="/quidditch-weather" class="hover:text-yellow-100"
               >Quidditch Weather</a
             >
           </li>
-          <li><a href="/spells" class="hover:text-yellow-100">Spells</a></li>
+        </ul>
+        <div class="dropdown" id="spellsDropdown">
+          <div
+            tabindex="0"
+            role="button"
+            class="hover:text-yellow-100 m-2"
+            id="spellsBtn"
+          >
+            Spells
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            id="spellsList"
+          >
+            <!-- Spells Items -->
+          </ul>
+        </div>
+
+        <div class="dropdown" id="charactersDropdown">
+          <div
+            tabindex="0"
+            role="button"
+            class="hover:text-yellow-100 bg-transparent border-none m-3"
+            id="charactersBtn"
+          >
+            Characters
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            id="charactersList"
+          >
+            <!-- Characters Items -->
+          </ul>
+        </div>
+        <ul>
           <li>
-            <a href="/characters" class="hover:text-yellow-100">Characters</a>
-          </li>
-          <li>
-            <a href="/sorting-hat" class="hover:text-yellow-100">Sorting Hat</a>
+            <a href="/portions" class="hover:text-yellow-100">Portions</a>
           </li>
         </ul>
         <!-- Dropdown Menu -->
-        <div
-          id="dropdownMenu"
-          class="hidden absolute left-0 mt-2 w-48 bg-white shadow-md"
-        >
-          <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Link 1</a
-          >
-          <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Link 2</a
-          >
-          <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Link 3</a
-          >
-        </div>
       </nav>
     </header>
-    <div id="LetterModal" class="fixed z-10 inset-0 overflow-y auto hidden">
-      <div class="bg-white"></div>
+    <div id="letterModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="relative">
+          <!-- Modal Background Image -->
+          <div class="absolute inset-0 bg-cover bg-no-repeat">
+            <!-- Modal Content -->
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-900"
+              style="
+                background-image: url('images/parchment.png');
+                background-size: contain;
+                width: 500px;
+                height: 400px;
+              "
+            >
+              <h2 class="text-2xl font-semibold mb-4">
+                Wizards Station Acceptance Letter
+              </h2>
+              <p class="mb-4 text-lg">Dear Wizard,</p>
+              <p class="mb-4 text-lg">
+                We are pleased to inform you that you have been accepted at Web
+                Wizard App. Please check out all the things you can do at the
+                webpage.
+              </p>
+              <p class="mb-4 text-lg">
+                Term begins right now. but you have a little time to send your
+                owl.
+              </p>
+              <p>Your sincerely,</p>
+              <p>Web Wizards Application</p>
+              <button
+                id="closeModalButton"
+                class="text-gray-500 hover:text-gray-700 focus:outline-none mt-4"
+              >
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- main content -->
+    <div id="dataContainer" class="container mx-auto px-4"></div>
     <div
       id="questionContainer"
       class="flex justify-center items-center h-screen"
@@ -81,17 +150,16 @@
           id="houseInput"
           type="text"
           placeholder="Gryffindor, Hufflepuff, Ravenclaw, Slytherin"
-          class="px-4 py-2 bg-black text-white border border-gray-300 rounded-md mb-4"
+          class="px-4 py-2 bg-black text-white border border-gray-300 rounded-md mb-4 w-full"
         />
-        <button
-          onclick="checkHouse()"
-          class="px-4 py-2 bg-purple-500 text-white"
-        >
+        <button onclick="checkHouse()" class="px-4 py-2 bg-gray-500 text-white">
           Submit
         </button>
         <p id="sortingHatSuggestion" class="hidden text-red-500"></p>
       </div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="assets/javascript/script.js"></script>
   </body>
 </html>

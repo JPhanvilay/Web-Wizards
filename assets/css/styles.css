@@ -1,0 +1,52 @@
+p {
+  font-family: "Dancing Script";
+  font-weight: bold;
+}
+
+h1,
+h2 {
+  font-family: "Dancing Script";
+  font-weight: bold;
+}
+
+#letterModal .bg-cover {
+  background-size: cover;
+}
+
+body {
+  overflow-x: hidden;
+  cursor: none;
+}
+
+#flashlight {
+  position: fixed;
+  left: -100%;
+  top: -100%;
+  /* pointer-events: none; */
+
+  height: 300%;
+  width: 300%;
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0) 2%,
+    rgba(0, 0, 0, 0.699) 4%
+  );
+  filter: blur(20px);
+
+  transition: left 0.5s ease-in-out, top 0.5s ease-in-out,
+    height 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+
+#cursor {
+  position: absolute;
+  z-index: 9999;
+  transform: rotate(-12deg);
+  top: 0px;
+  pointer-events: none;
+}
+
+#houseInput,
+button {
+  z-index: 9999;
+}
