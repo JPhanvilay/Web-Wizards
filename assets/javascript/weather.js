@@ -9,24 +9,6 @@ const citySearchBtn = document.querySelector('#searchButton');
 console.log(citySearchBtn)
 
 
-function renderSearchHistory() {
-    searchHistoryContainer.innerHTML = "";
-
-    for (let i = searchHistory.length - 1; i >= 0; i--) {
-        const citySearchBtn = document.createElement('button');
-        citySearchBtn.setAttribute('type', 'button');
-        citySearchBtn.setAttribute('aria-controls', 'todayForecast');
-        citySearchBtn.classList.add('history-citySearchBtn', 'citySearchBtn-history');
-
-        citySearchBtn.setAttribute('data-search', searchHistory[i]);
-        citySearchBtn.textContent = searchHistory[i];
-        searchHistoryContainer.append(citySearchBtn);
-
-    }
-}
-
-renderSearchHistory();
-
 function appendToHistory(search) {
     if (searchHistory.indexOf(search) !== -1) {
         return;
@@ -34,7 +16,7 @@ function appendToHistory(search) {
     searchHistory.push(search);
 
     localStorage.setItem("search-history", JSON.stringify(searchHistory));
-    renderSearchHistory();
+
 }
 
 async function searchCity(city) {
@@ -66,6 +48,7 @@ async function searchForecast(city) {
         const fiveDayresponse = await fetch(`${weatherForecastUrl}&q=${city}&days=5`)
         const fiveDayData = await fiveDayresponse.json()
         const filteredArray = fiveDayData.forecast.forecastday
+
         return filteredArray
     }
     catch (error) {
@@ -77,9 +60,9 @@ function renderTodayForecast(data) {
     const weatherHtml = `
         <div> 
             <h3>${data.name}</h3>
-            <p>temp_f: ${data.temp_f}</p>
-            <p>humidity: ${data.humidity}</p>
-            <p>wind-speed: ${data.wind}</p>
+            <p>Temp: ${data.temp_f}</p>
+            <p>Humidity: ${data.humidity}</p>
+            <p>Wind-speed: ${data.wind}</p>
         </div>
 
         `;
@@ -100,6 +83,23 @@ citySearchBtn.addEventListener('click', async function (event) {
     renderTodayForecast(cityData)
     console.log(cityData)
     const forecastArray = await searchForecast(searchedEl)
-    console.log(forecastArray)
+    let forecastCard = ""
+    forecastArray.forEach(day => {
+        console.log(day)
+        const weatherIcon = day.day.condition.icon
+        const weatherUrl = `https:${weatherIcon}`
+        forecastCard += `
+        <div class="forecast-card">
+            <p>${day.date}</p>
+            <p>Temp: ${day.day.avgtemp_f}</p>
+            <p>Humidity: ${day.day.avghumidity}</p>
+            <p>Wind Speed: ${day.day.maxwind_mph}</p>
+         <img src = "${weatherUrl}"alt="${day.day.condition.text}"/>
+        </div>
+        
+        `
+        fiveDayForecast.innerHTML = forecastCard
+
+    })
     appendToHistory(searchedEl);
 });

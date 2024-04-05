@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/weather.css">
     <title>Document</title>
 </head>
 
@@ -19,7 +19,8 @@
             <div class="hero-content text-center">
                 <div class="max-w-md">
                     <h1 class="text-8xl font-bold-lg text-white">Hello there,</h1>
-                    <p class="text-white font-bold-lg text-2xl">Use the search feature to check the flying conditions locally or 
+                    <p class="text-white font-bold-lg text-2xl">Use the search feature to check the flying conditions
+                        locally or
                         globally. Safe travels!
                     </p>
                     <!-- <button class="btn btn-primary">Get Started</button> -->
@@ -27,30 +28,42 @@
             </div>
         </div>
     </header>
+    <article>
+        <div class="page">
+            <div id="sidebar" class="justify-end">
+                <h2 class="text-2xl">Where are you flying today?</h2>
+                <form id="searched-cities"></form>
+                <input type="text" id="searchInput" placeholder="Enter search here" class="input input-bordered w-full max-w-xs" />
+                <button id="searchButton" class="btn btn-outline btn-warning">Search</button>
+                <!-- <input type="text" id="searchInput" placeholder="Search"></input> -->
+                <!-- <button id="searchButton">Search</button> -->
+            </div>
+            <div class="searchHistoryContainer" id="history"></div>
+        </div>
+    </article>
     <nav>
-        <div class="navbar bg-base-100">
-            <a class="btn btn-ghost text-xl">Flying Conditions</a>
-            <button class="btn btn-warning">Back</button>
+        <div class="navbar bg-base-100 justify-end">
+            <a class="btn btn-ghost text-2xl">Flying Conditions</a>
         </div>
     </nav>
     <main>
         <div class="flex w-full p-8 ">
-            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center text-lg">Today's Sky</div>
+            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center text-2xl">Today's Sky:</div>
             <div class="divider divider-horizontal"></div>
-            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+            <div class="grid h-auto flex-grow card bg-base-300 rounded-box place-items-center object-scale-down p-8" id="today">content</div>
         </div>
-
-        <div class="flex w-full p-8 ">
-            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
-            <div class="divider divider-horizontal"></div>
-            <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center text-lg">As Foreseen</div>
+        <div class="flex flex-col w-full border-opacity-50">
+            <div class="grid h-20 card bg-base-300 rounded-box place-items-center text-2xl">As Foreseen:</div>
+            <div class="divider"></div>
+            <div class="grid h-auto card bg-base-300 rounded-box place-items-center object-scale-down flex-row p-8" id="forecast">content</div>
         </div>
-    </main>
+        <button class="btn btn-outline btn-warning justify-end">Back</button>
 
 
 
-    <script src="./assets/weather.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+        <script src="./assets/javascript/weather.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
 </body>
 
 </html>
