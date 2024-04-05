@@ -11,50 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Fetch
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const spellsBtn = document.getElementById("spellsBtn");
-//   const spellsList = document.getElementById("spellsList");
-//   const charactersBtn = document.getElementById("charactersBtn");
-//   const charactersList = document.getElementById("charactersList");
-//   fetchSpells();
-//   fetchCharacters();
-// });
-
-// function fetchSpells() {
-//   fetch("https://api.potterdb.com/v1/spells")
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log(data);
-//       populateDropdown(data, "spellsList");
-//     })
-//     .catch(error => console.error("Error fetching spells", error));
-// }
-
-// function fetchCharacters() {
-//   fetch("https://api.potterdb.com/v1/characters")
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log(data);
-//       populateDropdown(data, "charactersList");
-//     })
-//     .catch(error => console.error("Error fetching characters", error));
-// }
-
-// function populateDropdown(data, dropdownId) {
-//   console.log(data);
-//   const dropdownList = document.getElementById(dropdownId);
-//   dropdownList.innerHTML = "";
-//   console.log(dropdownList);
-//   data.data.forEach(item => {
-//     const li = document.createElement("li");
-//     li.textContent = item.attributes.name;
-//     li.className = "text-black";
-//     dropdownList.appendChild(li);
-//   });
-// }
-
 const questionElement = document.getElementById("question");
 const questionText = "Which house do you belong to?";
 
