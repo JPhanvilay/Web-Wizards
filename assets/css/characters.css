@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust as needed for layout */
+  gap: 20px; /* Adjust as needed for spacing between cards */
+  padding-top: 20px; /* Add padding to the top of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1200px; /* Adjust as needed to control maximum width */
+}
+
+.card {
+  position: relative;
+  width: 250px; /* Adjust as needed */
+  height: 320px; /* Adjust as needed */
+  perspective: 1000px; /* Added perspective for 3D effect */
+  border: 4px solid whitesmoke; /* Add border to each card */
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.cardFront {
+  background-size: cover;
+  background-position: center;
+}
+
+.cardBack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: aliceblue;
+  transform: rotateY(180deg);
+  padding: 20px;
+}
+
+.card:hover .cardFront {
+  transform: rotateY(180deg);
+}
+
+.card:hover .cardBack {
+  transform: rotateY(0);
+}
