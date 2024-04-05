@@ -1,3 +1,11 @@
+document.querySelectorAll(".question-label").forEach(label => {
+  label.addEventListener("click", function () {
+    const questionNumber = this.getAttribute("data-question");
+    const options = document.querySelector(`select[name="q${questionNumber}"]`);
+    options.classList.toggle("hidden-options");
+  });
+});
+
 document
   .getElementById("quizForm")
   .addEventListener("submit", function (event) {
@@ -11,10 +19,14 @@ document
 
     // Add scores based on selected answers
     formData.forEach((value, name) => {
-      if (value === "gryffindor") gryffindorScore += 1;
-      if (value === "ravenclaw") ravenclawScore += 1;
-      if (value === "slytherin") slytherinScore += 1;
-      if (value === "hufflepuff") hufflepuffScore += 1;
+      if (value === "gryffindor" && value !== "Choose an answer")
+        gryffindorScore += 1;
+      if (value === "ravenclaw" && value !== "Choose an answer")
+        ravenclawScore += 1;
+      if (value === "slytherin" && value !== "Choose an answer")
+        slytherinScore += 1;
+      if (value === "hufflepuff" && value !== "Choose an answer")
+        hufflepuffScore += 1;
     });
 
     // Determine the highest score and display the result
@@ -48,7 +60,7 @@ document
         houseNameElement.style.color = "red";
         break;
       case "ravenclaw":
-        houseNameElement.style.color = "blue";
+        houseNameElement.style.color = "aqua";
         break;
       case "slytherin":
         houseNameElement.style.color = "green";
@@ -56,11 +68,9 @@ document
       case "hufflepuff":
         houseNameElement.style.color = "yellow";
         break;
-      default:
-        houseNameElement.style.color = "black"; // Default color
-        break;
     }
     houseNameElement.style.fontWeight = "bold";
+    houseNameElement.style.fontSize = "45px";
 
     // Display the corresponding house image and score
     document.getElementById("houseImage").src = houseImages[houseGuessed];

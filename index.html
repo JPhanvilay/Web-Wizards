@@ -36,31 +36,9 @@
       >
         <!-- Sidebar Icon -->
         <div class="dropdown dropdown-hover">
-          <i
-            id="sidebarIcon"
-            class="fa-solid fa-hat-wizard text-4xl"
-            tabindex="0"
-            role="button"
-          ></i>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow bg-gray-500 rounded-box w-52"
-          >
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >Item 1</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >Item 2</a
-              >
-            </li>
-          </ul>
+          <button id="startQuizButton" class="text-4xl focus:outline-none">
+            <i id="sidebarIcon" class="fa-solid fa-hat-wizard"></i>
+          </button>
         </div>
         <a href="/" class="text-xl font-bold mx-auto">Web Wizard</a>
 
@@ -108,7 +86,7 @@
         </div>
         <ul>
           <li>
-            <a href="/sorting-hat" class="hover:text-yellow-100">Sorting Hat</a>
+            <a href="/portions" class="hover:text-yellow-100">Portions</a>
           </li>
         </ul>
         <!-- Dropdown Menu -->
@@ -172,7 +150,7 @@
           id="houseInput"
           type="text"
           placeholder="Gryffindor, Hufflepuff, Ravenclaw, Slytherin"
-          class="px-4 py-2 bg-black text-white border border-gray-300 rounded-md mb-4"
+          class="px-4 py-2 bg-black text-white border border-gray-300 rounded-md mb-4 w-full"
         />
         <button onclick="checkHouse()" class="px-4 py-2 bg-gray-500 text-white">
           Submit

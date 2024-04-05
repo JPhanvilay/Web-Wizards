@@ -13,71 +13,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Fetch
 
-document.addEventListener("DOMContentLoaded", function () {
-  const spellsBtn = document.getElementById("spellsBtn");
-  const spellsList = document.getElementById("spellsList");
-  const charactersBtn = document.getElementById("charactersBtn");
-  const charactersList = document.getElementById("charactersList");
-  fetchSpells();
-  fetchCharacters();
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   const spellsBtn = document.getElementById("spellsBtn");
+//   const spellsList = document.getElementById("spellsList");
+//   const charactersBtn = document.getElementById("charactersBtn");
+//   const charactersList = document.getElementById("charactersList");
+//   fetchSpells();
+//   fetchCharacters();
+// });
 
-function fetchSpells() {
-  fetch("https://api.potterdb.com/v1/spells")
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      populateDropdown(data, "spellsList");
-    })
-    .catch(error => console.error("Error fetching spells", error));
-}
+// function fetchSpells() {
+//   fetch("https://api.potterdb.com/v1/spells")
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log(data);
+//       populateDropdown(data, "spellsList");
+//     })
+//     .catch(error => console.error("Error fetching spells", error));
+// }
 
-function fetchCharacters() {
-  fetch("https://api.potterdb.com/v1/characters")
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      populateDropdown(data, "charactersList");
-    })
-    .catch(error => console.error("Error fetching characters", error));
-}
+// function fetchCharacters() {
+//   fetch("https://api.potterdb.com/v1/characters")
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log(data);
+//       populateDropdown(data, "charactersList");
+//     })
+//     .catch(error => console.error("Error fetching characters", error));
+// }
 
-function populateDropdown(data, dropdownId) {
-  console.log(data);
-  const dropdownList = document.getElementById(dropdownId);
-  dropdownList.innerHTML = "";
-  console.log(dropdownList);
-  data.data.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item.attributes.name;
-    li.className = "text-black";
-    dropdownList.appendChild(li);
-  });
-}
-
-// Navbar
-document.addEventListener("DOMContentLoaded", function () {
-  const dropdownMenu = document.querySelector(
-    ".dropdown-hover .dropdown-content"
-  );
-  const sidebarIcon = document.getElementById("sidebarIcon");
-
-  sidebarIcon.addEventListener("mouseenter", function () {
-    dropdownMenu.classList.remove("hidden");
-  });
-
-  sidebarIcon.addEventListener("mouseleave", function () {
-    dropdownMenu.classList.add("hidden");
-  });
-
-  dropdownMenu.addEventListener("mouseenter", function () {
-    dropdownMenu.classList.remove("hidden");
-  });
-
-  dropdownMenu.addEventListener("mouseleave", function () {
-    dropdownMenu.classList.add("hidden");
-  });
-});
+// function populateDropdown(data, dropdownId) {
+//   console.log(data);
+//   const dropdownList = document.getElementById(dropdownId);
+//   dropdownList.innerHTML = "";
+//   console.log(dropdownList);
+//   data.data.forEach(item => {
+//     const li = document.createElement("li");
+//     li.textContent = item.attributes.name;
+//     li.className = "text-black";
+//     dropdownList.appendChild(li);
+//   });
+// }
 
 const questionElement = document.getElementById("question");
 const questionText = "Which house do you belong to?";
@@ -123,10 +99,10 @@ function init() {
 }
 
 function mousemove(event) {
-  var mouse_x = event.clientX;
-  var mouse_y = event.clientY;
+  let mouse_x = event.clientX;
+  let mouse_y = event.clientY;
 
-  var fl = document.getElementById("flashlight");
+  let fl = document.getElementById("flashlight");
   fl.style.transform =
     "translate(calc(" +
     mouse_x +
@@ -141,10 +117,10 @@ function init() {
 }
 
 function mousemove(event) {
-  var mouse_x = event.clientX;
-  var mouse_y = event.clientY;
+  let mouse_x = event.clientX;
+  let mouse_y = event.clientY;
 
-  var fl = document.getElementById("flashlight");
+  let fl = document.getElementById("flashlight");
   fl.style.transform =
     "translate(calc(" +
     mouse_x +
@@ -153,10 +129,16 @@ function mousemove(event) {
     mouse_y +
     "px - 50vh))";
 }
-
+$("#flashlight").click(fl => {
+  $("#flashlight").hide();
+  console.log("CLICKED", document.elementsFromPoint(fl.clientX, fl.clientY)[0]);
+  $(document.elementsFromPoint(fl.clientX, fl.clientY)[0]).focus();
+  $(document.elementsFromPoint(fl.clientX, fl.clientY)[0]).trigger("click");
+  $("#flashlight").show();
+});
 init();
 
-var image = document.getElementById("cursor");
+let image = document.getElementById("cursor");
 
 // Add event listener for mouse move
 document.addEventListener("mousemove", function (event) {
@@ -164,3 +146,9 @@ document.addEventListener("mousemove", function (event) {
   image.style.left = event.pageX + "px";
   image.style.top = event.pageY + "px";
 });
+
+document
+  .getElementById("startQuizButton")
+  .addEventListener("click", function () {
+    window.location.href = "quiz.html";
+  });
