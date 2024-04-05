@@ -14,48 +14,59 @@
 
 <body class="font-dancing-script">
     <header>
-        <div class="hero min-h-screen bg-base-100"
-            style="background-image: url(/Users/georgehernandez/daisy/flying.png)">
+        <div class="hero min-h-screen bg-base-100" style="background-image: url(assets/images/flying.png)">
             <div class="hero-content text-center">
-                <div class="max-w-md">
+                <div class="max-w-md flex flex-col space-y-4">
                     <h1 class="text-8xl font-bold-lg text-white">Hello there,</h1>
-                    <p class="text-white font-bold-lg text-2xl">Use the search feature to check the flying conditions
+                    <p class="text-white font-bold-lg text-2xl mb-px">Use the search feature to check the flying conditions
                         locally or
                         globally. Safe travels!
                     </p>
-                    <!-- <button class="btn btn-primary">Get Started</button> -->
+                    <div>
+                        <div id="sidebar">
+                            <h2 class="text-2xl">Where are you flying today?</h2>
+                            <form id="searched-cities"></form>
+                            <input type="text" id="searchInput" placeholder="Enter search here"
+                                class="input input-bordered w-full max-w-xs" />
+                            <button id="searchButton" class="btn btn-warning">Search</button>
+                        </div>
+                        <div class="searchHistoryContainer" id="history"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
-    <article>
-        <div class="page">
-            <div id="sidebar" class="justify-end">
+
+    <!-- <article>
+        <div class="page" class="justify-end">
+            <div id="sidebar">
                 <h2 class="text-2xl">Where are you flying today?</h2>
                 <form id="searched-cities"></form>
-                <input type="text" id="searchInput" placeholder="Enter search here" class="input input-bordered w-full max-w-xs" />
+                <input type="text" id="searchInput" placeholder="Enter search here"
+                    class="input input-bordered w-full max-w-xs" />
                 <button id="searchButton" class="btn btn-outline btn-warning">Search</button>
-                <!-- <input type="text" id="searchInput" placeholder="Search"></input> -->
-                <!-- <button id="searchButton">Search</button> -->
             </div>
             <div class="searchHistoryContainer" id="history"></div>
         </div>
-    </article>
+    </article> -->
+
     <nav>
-        <div class="navbar bg-base-100 justify-end">
-            <a class="btn btn-ghost text-2xl">Flying Conditions</a>
+        <div class="navbar bg-base-100 content-center">
+            <a class="btn btn-ghost text-4xl">Flying Conditions</a>
         </div>
     </nav>
     <main>
         <div class="flex w-full p-8 ">
             <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center text-2xl">Today's Sky:</div>
             <div class="divider divider-horizontal"></div>
-            <div class="grid h-auto flex-grow card bg-base-300 rounded-box place-items-center object-scale-down p-8" id="today">content</div>
+            <div class="grid h-auto flex-grow card bg-base-300 rounded-box place-items-center object-scale-down p-8"
+                id="today">content</div>
         </div>
         <div class="flex flex-col w-full border-opacity-50">
             <div class="grid h-20 card bg-base-300 rounded-box place-items-center text-2xl">As Foreseen:</div>
             <div class="divider"></div>
-            <div class="grid h-auto card bg-base-300 rounded-box place-items-center object-scale-down flex-row p-8" id="forecast">content</div>
+            <div class="grid h-auto card bg-base-300 rounded-box place-items-center object-scale-down flex-row p-8"
+                id="forecast">content</div>
         </div>
         <button class="btn btn-outline btn-warning justify-end">Back</button>
 

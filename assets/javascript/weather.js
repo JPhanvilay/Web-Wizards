@@ -30,7 +30,9 @@ async function searchCity(city) {
             name: data.location.name,
             temp_f: data.current.temp_f,
             wind: data.current.wind_mph,
-            humidity: data.current.humidity
+            humidity: data.current.humidity,
+            icon: data.current.condition.icon,
+            altText: data.current.condition.text
         }
         return parsedData
 
@@ -57,12 +59,15 @@ async function searchForecast(city) {
 }
 
 function renderTodayForecast(data) {
+    const todayUrl = `https:${data.icon}`
+    
     const weatherHtml = `
         <div> 
             <h3>${data.name}</h3>
             <p>Temp: ${data.temp_f}</p>
             <p>Humidity: ${data.humidity}</p>
             <p>Wind-speed: ${data.wind}</p>
+            <img src = "${todayUrl}" alt="${data.altText}"/>
         </div>
 
         `;
