@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 40px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.card {
+  position: relative;
+  width: 250px;
+  height: 320px;
+  perspective: 1000px;
+  border: 5px solid whitesmoke;
+  box-sizing: border-box;
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  backface-visibility: hidden;
+}
+
+.cardFront {
+  background-size: cover;
+  background-position: center;
+}
+
+.cardBack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: aliceblue;
+  transform: rotateY(180deg);
+  padding: 20px;
+}
+
+.card:hover .cardFront {
+  transform: rotateY(180deg);
+}
+
+.card:hover .cardBack {
+  transform: rotateY(0);
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 5rem;
+  background-image: linear-gradient(to right, #ff00cc, #333399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: #333399;
+}
+
+.card img {
+  background-size: contain;
+}

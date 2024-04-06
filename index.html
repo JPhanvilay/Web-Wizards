@@ -30,66 +30,50 @@
     <img src="images/cursor3.png" id="cursor" alt="" srcset="" />
     <header>
       <nav
-        <nav
         class="text-yellow-300 p-4 flex items-center justify-between"
         style="background-color: transparent"
       >
         <!-- Sidebar Icon -->
-        <div class="dropdown dropdown-hover">
+        <div class="click">
           <button id="startQuizButton" class="text-4xl focus:outline-none">
             <i id="sidebarIcon" class="fa-solid fa-hat-wizard"></i>
           </button>
         </div>
         <a href="/" class="text-xl font-bold mx-auto">Web Wizard</a>
 
-        <ul class="flex space-x-4">
-          <li>
-            <a href="/quidditch-weather" class="hover:text-yellow-100"
-              >Quidditch Weather</a
+        <div class="click">
+          <a
+            href=""
+            class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-yellow-200 dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
+          >
+            <span
+              class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
             >
-          </li>
-        </ul>
-        <div class="dropdown" id="spellsDropdown">
-          <div
-            tabindex="0"
-            role="button"
-            class="hover:text-yellow-100 m-2"
-            id="spellsBtn"
+              Quidditch-Weather
+            </span>
+          </a>
+          <a
+            href="library.html"
+            class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-yellow-200 dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
           >
-            Spells
-          </div>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            id="spellsList"
-          >
-            <!-- Spells Items -->
-          </ul>
-        </div>
+            <span
+              class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+            >
+              Library
+            </span>
+          </a>
 
-        <div class="dropdown" id="charactersDropdown">
-          <div
-            tabindex="0"
-            role="button"
-            class="hover:text-yellow-100 bg-transparent border-none m-3"
-            id="charactersBtn"
+          <a
+            href=""
+            class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-yellow-200 dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
           >
-            Characters
-          </div>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            id="charactersList"
-          >
-            <!-- Characters Items -->
-          </ul>
+            <span
+              class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+            >
+              Portions
+            </span>
+          </a>
         </div>
-        <ul>
-          <li>
-            <a href="/portions" class="hover:text-yellow-100">Portions</a>
-          </li>
-        </ul>
-        <!-- Dropdown Menu -->
       </nav>
     </header>
     <div id="letterModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
@@ -152,7 +136,10 @@
           placeholder="Gryffindor, Hufflepuff, Ravenclaw, Slytherin"
           class="px-4 py-2 bg-black text-white border border-gray-300 rounded-md mb-4 w-full"
         />
-        <button onclick="checkHouse()" class="px-4 py-2 bg-gray-500 text-white">
+        <button
+          onclick="checkHouse()"
+          class="px-4 py-2 bg-white dark:bg-gray-900 text-white"
+        >
           Submit
         </button>
         <p id="sortingHatSuggestion" class="hidden text-red-500"></p>
@@ -161,11 +148,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- RandomSpell -->
-    <div class="flex-1 mb-16 mt-8 spell ">
+    <div class="flex-1 mb-16 mt-8 spell">
       <div id="card" class="flex justify-center">
-        <div class="grid lg:grid-cols-2 md:w-2/3 mt-5 p-5 border-2 border-gray-200 rounded-lg" id = "container">
-          <div class="p-3 flex flex-col items-center justify-center" id = "image"></div>
-          <div class = "p-3">
+        <div
+          class="grid lg:grid-cols-2 md:w-2/3 mt-5 p-5 border-2 border-gray-200 rounded-lg"
+          id="container"
+        >
+          <div
+            class="p-3 flex flex-col items-center justify-center"
+            id="image"
+          ></div>
+          <div class="p-3">
             <div class="text-white text-left" id="description"></div>
           </div>
         </div>
