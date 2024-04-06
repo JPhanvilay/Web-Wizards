@@ -48,48 +48,15 @@
               >Quidditch Weather</a
             >
           </li>
-        </ul>
-        <div class="dropdown" id="spellsDropdown">
-          <div
-            tabindex="0"
-            role="button"
-            class="hover:text-yellow-100 m-2"
-            id="spellsBtn"
-          >
-            Spells
-          </div>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            id="spellsList"
-          >
-            <!-- Spells Items -->
-          </ul>
-        </div>
 
-        <div class="dropdown" id="charactersDropdown">
-          <div
-            tabindex="0"
-            role="button"
-            class="hover:text-yellow-100 bg-transparent border-none m-3"
-            id="charactersBtn"
-          >
-            Library
-          </div>
-          <ul
-            tabindex="0"
-            class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            id="charactersList"
-          >
-            <!-- Characters Items -->
-          </ul>
-        </div>
-        <ul>
+          <li>
+            <a href="library.html" class="hover:text-yellow-100">Library</a>
+          </li>
+
           <li>
             <a href="/portions" class="hover:text-yellow-100">Portions</a>
           </li>
         </ul>
-        <!-- Dropdown Menu -->
       </nav>
     </header>
     <div id="letterModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
@@ -161,11 +128,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- RandomSpell -->
-    <div class="flex-1 mb-16 mt-8 spell ">
+    <div class="flex-1 mb-16 mt-8 spell">
       <div id="card" class="flex justify-center">
-        <div class="grid lg:grid-cols-2 md:w-2/3 mt-5 p-5 border-2 border-gray-200 rounded-lg" id = "container">
-          <div class="p-3 flex flex-col items-center justify-center" id = "image"></div>
-          <div class = "p-3">
+        <div
+          class="grid lg:grid-cols-2 md:w-2/3 mt-5 p-5 border-2 border-gray-200 rounded-lg"
+          id="container"
+        >
+          <div
+            class="p-3 flex flex-col items-center justify-center"
+            id="image"
+          ></div>
+          <div class="p-3">
             <div class="text-white text-left" id="description"></div>
           </div>
         </div>
