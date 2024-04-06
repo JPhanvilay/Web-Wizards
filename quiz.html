@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sorting-hat</title>
+    <title>Sorting Hat Quiz</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       rel="stylesheet"
@@ -17,25 +17,31 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/quiz.css" />
+    <link href="assets/css/quiz.css" rel="stylesheet" />
   </head>
   <body
-    class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat"
-    style="background-image: url('images/back4.jpg')"
+    class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat bg-hogwarts-bg"
+    style="background-image: url('images/sorting-hat.jpeg')"
   >
     <a
       href="index.html"
-      class="absolute top-0 right-0 text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-      >Back</a
+      class="fixed bottom-10 right-10 z-10 inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-yellow-200 dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
     >
+      <span
+        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+        >Back</span
+      >
+    </a>
     <div class="container mx-auto">
-      <h1 class="text-3xl font-bold mb-4 text-center mx-auto text-gray-500">
+      <h1
+        class="text-3xl font-bold mb-4 text-center mx-auto text-gray-500 font-magic"
+      >
         House Sorting Quiz
       </h1>
       <form id="quizForm" class="mb-8">
         <div class="mb-4 text-pink-300">
           <label
-            class="block mb-2 question-label text-4xl font-bold"
+            class="block mb-2 question-label text-4xl font-magic animate__animated animate__fadeInUp"
             data-question="1"
             >Question 1: Which quality do you value most in yourself?</label
           >
@@ -44,16 +50,17 @@
             class="border border-gray-300 px-4 py-2 rounded-md w-1/2 hidden-options bg-transparent"
           >
             <option selected>Choose an answer</option>
-            <option value="gryffindor">Courage</option>
-            <option value="ravenclaw">Intelligence</option>
-            <option value="slytherin">Ambition</option>
-            <option value="hufflepuff">Loyalty</option>
+            <option value="gryffindor" class="magical-answer">Courage</option>
+            <option value="ravenclaw" class="magical-answer">
+              Intelligence
+            </option>
+            <option value="slytherin" class="magical-answer">Ambition</option>
+            <option value="hufflepuff" class="magical-answer">Loyalty</option>
           </select>
         </div>
-
-        <div class="mb-4 text-pink-300">
+        <div class="mb-4 text-blue-200">
           <label
-            class="block mb-2 question-label text-4xl font-bold"
+            class="block mb-2 question-label text-4xl font-magic animate__animated animate__fadeInUp"
             data-question="2"
             >Question 2: What is your greatest fear?</label
           >
@@ -62,15 +69,15 @@
             class="border border-gray-300 px-4 py-2 rounded-md w-1/2 hidden-options bg-transparent"
           >
             <option selected>Choose an answer</option>
-            <option value="gryffindor">Failure</option>
-            <option value="ravenclaw">Ignorance</option>
-            <option value="slytherin">Mediocrity</option>
-            <option value="hufflepuff">Isolation</option>
+            <option value="gryffindor" class="magical-answer">Failure</option>
+            <option value="ravenclaw" class="magical-answer">Ignorance</option>
+            <option value="slytherin" class="magical-answer">Mediocrity</option>
+            <option value="hufflepuff" class="magical-answer">Isolation</option>
           </select>
         </div>
-        <div class="mb-4 text-pink-300">
+        <div class="mb-4 text-blue-300">
           <label
-            class="block mb-2 question-label text-4xl font-bold"
+            class="block mb-2 question-label text-4xl font-magic animate__animated animate__fadeInUp"
             data-question="3"
             >Question 3: What type of environment do you thrive in?</label
           >
@@ -79,15 +86,23 @@
             class="border border-gray-300 px-4 py-2 rounded-md w-1/2 hidden-options bg-transparent"
           >
             <option selected>Choose an answer</option>
-            <option value="gryffindor">Exciting and adventurous</option>
-            <option value="ravenclaw">Quiet and studious</option>
-            <option value="slytherin">Competitive and challenging</option>
-            <option value="hufflepuff">Supportive and friendly</option>
+            <option value="gryffindor" class="magical-answer">
+              Exciting and adventurous
+            </option>
+            <option value="ravenclaw" class="magical-answer">
+              Quiet and studious
+            </option>
+            <option value="slytherin" class="magical-answer">
+              Competitive and challenging
+            </option>
+            <option value="hufflepuff" class="magical-answer">
+              Supportive and friendly
+            </option>
           </select>
         </div>
-        <div class="mb-4 text-pink-300">
+        <div class="mb-4 text-orange-500">
           <label
-            class="block mb-2 question-label text-4xl font-bold"
+            class="block mb-2 question-label text-4xl font-magic animate__animated animate__fadeInUp"
             data-question="4"
             >Question 4: What would you do if faced with a difficult
             decision?</label
@@ -97,24 +112,23 @@
             class="border border-gray-300 px-4 py-2 rounded-md w-1/2 hidden-options bg-transparent"
           >
             <option selected>Choose an answer</option>
-            <option value="gryffindor">
+            <option value="gryffindor" class="magical-answer">
               Act bravely and without hesitation
             </option>
-            <option value="ravenclaw">
+            <option value="ravenclaw" class="magical-answer">
               Analyze the situation carefully before deciding
             </option>
-            <option value="slytherin">
-              Choose the path that offers the most opportunities for sucess
+            <option value="slytherin" class="magical-answer">
+              Choose the path that offers the most opportunities for success
             </option>
-            <option value="hufflepuff">
-              Consult with friendss or trusted individuals before making a
-              choice
+            <option value="hufflepuff" class="magical-answer">
+              Consult with friends or trusted individuals before making a choice
             </option>
           </select>
         </div>
-        <div class="mb-4 text-blue-200">
+        <div class="mb-4 text-orange-300">
           <label
-            class="block mb-2 question-label text-4xl font-bold"
+            class="block mb-2 question-label text-4xl font-magic animate__animated animate__fadeInUp"
             data-question="5"
             >Question 5: How do you react to adversity?</label
           >
@@ -123,17 +137,21 @@
             class="border border-gray-300 px-4 py-2 rounded-md w-1/2 hidden-options bg-transparent"
           >
             <option selected>Choose an answer</option>
-            <option value="gryffindor">Confront it head-on</option>
-            <option value="ravenclaw">Seek knowledge to overcome it</option>
-            <option value="slytherin">
-              Find creative solutions to navigate throught it
+            <option value="gryffindor" class="magical-answer">
+              Confront it head-on
             </option>
-            <option value="hufflepuff">
+            <option value="ravenclaw" class="magical-answer">
+              Seek knowledge to overcome it
+            </option>
+            <option value="slytherin" class="magical-answer">
+              Find creative solutions to navigate through it
+            </option>
+            <option value="hufflepuff" class="magical-answer">
               Lean on friends and loved ones for support
             </option>
           </select>
         </div>
-
+        <!-- Add more questions and select inputs here -->
         <button
           type="submit"
           class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
@@ -152,7 +170,6 @@
         </div>
       </div>
     </div>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/javascript/quiz.js"></script>
   </body>
