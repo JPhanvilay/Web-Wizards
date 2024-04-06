@@ -115,10 +115,11 @@ function checkHouse() {
     questionContainer.style.display = "none";
   } else {
     document.getElementById("sortingHatSuggestion").innerText =
-      "If you're sure, try the Sorting Hat!";
+      "If you're not sure, try the Sorting Hat!";
 
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
+  sortingHatSuggestion.style.fontSize = "2.2rem";
   randomSpell();
 }
 

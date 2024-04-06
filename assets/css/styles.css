@@ -1,25 +1,29 @@
+body {
+  overflow-x: hidden;
+  cursor: none;
+}
+
 .spell {
-  background-image:none;
+  background-image: none;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 #image-spell {
-  width:400px;
-  height:200px;
+  width: 400px;
+  height: 200px;
 }
 
-#description{
+#description {
   color: white;
 }
 
-#thicker{
-  font-weight:900;
+#thicker {
+  font-weight: 900;
 }
 
-#container{
-  background-color:black;
+#container {
+  background-color: black;
 }
 
 p {
@@ -37,16 +41,10 @@ h2 {
   background-size: cover;
 }
 
-body {
-  overflow-x: hidden;
-  cursor: none;
-}
-
 #flashlight {
   position: fixed;
   left: -100%;
   top: -100%;
-  /* pointer-events: none; */
 
   height: 300%;
   width: 300%;
