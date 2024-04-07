@@ -68,7 +68,12 @@ h2 {
   pointer-events: none;
 }
 
-#houseInput,
-button {
-  z-index: 9999;
+/* Font styles */
+.font-magic {
+  font-family: "font-magic", cursive;
+}
+
+/* Text shadow to simulate ink bleeding */
+.text-shadow {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
