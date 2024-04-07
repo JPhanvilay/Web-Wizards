@@ -34,8 +34,8 @@ function randomSpell() {
         Incantation: randomSpell.attributes.incantation,
         Light: randomSpell.attributes.light,
       };
-
-      const randomSpellEl = document.createElement("h2");
+      
+      const randomSpellEl = document.createElement("h3");
       randomSpellEl.textContent = "Random Spell";
       descriptionEl.append(randomSpellEl);
 

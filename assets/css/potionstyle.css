@@ -1,0 +1,26 @@
+.card{
+    border-color:black;
+}
+
+#potionName1, #potionName2, #potionName3, #potionName4, #potionName5{
+    font-weight: bold;
+    font-size: x-large;
+    margin-bottom: 2px;
+}
+
+/* #imagePotion1, #imagePotion2, #imagePotion3, #imagePotion4, #imagePotion5{
+    width: 150px;
+    height: 150px;
+} */
+
+.navbar{
+    background-color:darkslategrey;
+    box-shadow: 0 5px 80px rgba(0,0,0,0.1);
+    /* position: fixed;  */
+    color:black;
+}
+
+.mainText{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
