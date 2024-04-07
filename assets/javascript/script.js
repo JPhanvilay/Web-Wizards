@@ -34,8 +34,8 @@ function randomSpell() {
         Incantation: randomSpell.attributes.incantation,
         Light: randomSpell.attributes.light,
       };
-
-      const randomSpellEl = document.createElement("h2");
+      
+      const randomSpellEl = document.createElement("h3");
       randomSpellEl.textContent = "Random Spell";
       descriptionEl.append(randomSpellEl);
 
@@ -119,7 +119,8 @@ function checkHouse() {
 
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
-  sortingHatSuggestion.style.fontSize = "2.2rem";
+
+  sortingHatSuggestion.style.fontSize = "1.8rem";
   randomSpell();
 }
 

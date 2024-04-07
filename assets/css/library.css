@@ -14,6 +14,7 @@
   perspective: 1000px;
   border: 5px solid whitesmoke;
   box-sizing: border-box;
+  border-radius: 20px;
 }
 
 .cardFront,
@@ -28,6 +29,7 @@
 .cardFront {
   background-size: cover;
   background-position: center;
+  border-radius: 20px;
 }
 
 .cardBack {
@@ -35,7 +37,7 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: aliceblue;
+  color: white;
   transform: rotateY(180deg);
   padding: 20px;
 }
@@ -49,14 +51,10 @@
 }
 
 h1 {
-  font-family: "Dancing Script", cursive;
+  font-family: "font-magic", cursive;
   font-size: 5rem;
-  background-image: linear-gradient(to right, #ff00cc, #333399);
+  background-image: linear-gradient(to right, red, yellow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   border: #333399;
-}
-
-.card img {
-  background-size: contain;
 }
