@@ -1,3 +1,28 @@
-.hidden-options {
-  display: none;
+.font-magic {
+  font-family: "Harry Potter", cursive;
+}
+
+/* Animated Transitions: Add CSS animations to questions */
+.animate__animated {
+  animation-duration: 1s;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+/* Magical Feedback: Sparkling answer options */
+.magical-answer {
+  background-image: linear-gradient(90deg, #fff, #ffc0cb, #fff);
+  background-size: 200% auto;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
 }

@@ -24,10 +24,9 @@ function randomSpell() {
       return response.json();
     })
     .then(function (spellsObj) {
-
       let data = spellsObj.data;
       randomSpell = data[Math.floor(Math.random() * data.length)];
-  
+
       const spell = {
         Name: randomSpell.attributes.name,
         Category: randomSpell.attributes.category,
@@ -47,7 +46,7 @@ function randomSpell() {
         imgEl.setAttribute("class", "float-left");
         imgEl.setAttribute("alt", "spell-image");
         imgEl.setAttribute("src", randomSpell.attributes.image);
-      } else{
+      } else {
         const imgEl = document.createElement("img");
         imageEl.append(imgEl);
         imgEl.setAttribute("id", "image-spell");
@@ -69,19 +68,19 @@ function randomSpell() {
       const linkEl = document.createElement("a");
       descriptionEl.append(linkEl);
       linkEl.setAttribute("href", randomSpell.attributes.wiki);
-      linkEl.setAttribute("id","thicker");
+      linkEl.setAttribute("id", "thicker");
       linkEl.textContent = "Wiki-Link";
+
+      hideFlashlight();
     });
 }
 
-document.getElementById("sidebarIcon").addEventListener("click", function () {
-  let dropdown = document.getElementById("dropdownMenu");
-  if (dropdown.classList.contains("hidden")) {
-    dropdown.classList.remove("hidden");
-  } else {
-    dropdown.classList.add("hidden");
+function hideFlashlight() {
+  const fl = document.getElementById("flashlight");
+  if (fl) {
+    fl.style.display = "none";
   }
-});
+}
 
 const questionElement = document.getElementById("question");
 const questionText = "Which house do you belong to?";
@@ -116,10 +115,12 @@ function checkHouse() {
     questionContainer.style.display = "none";
   } else {
     document.getElementById("sortingHatSuggestion").innerText =
-      "If you're sure, try the Sorting Hat!";
+      "If you're not sure, try the Sorting Hat!";
 
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
+
+  sortingHatSuggestion.style.fontSize = "1.8rem";
   randomSpell();
 }
 
@@ -160,8 +161,8 @@ function mousemove(event) {
 }
 $("#flashlight").click(fl => {
   $("#flashlight").hide();
-  $(document.elementsFromPoint(fl.clientX, fl.clientY)[0]).focus();
-  $(document.elementsFromPoint(fl.clientX, fl.clientY)[0]).trigger("click");
+  $(document.elementsFromPoint(fl.clientX, fl.clientY)).focus();
+  $(document.elementsFromPoint(fl.clientX, fl.clientY)).trigger("click");
   $("#flashlight").show();
 });
 init();
@@ -180,8 +181,3 @@ document
   .addEventListener("click", function () {
     window.location.href = "quiz.html";
   });
-document.addEventListener("DOMContentLoaded", function () {
-  animateText();
-});
-
-
