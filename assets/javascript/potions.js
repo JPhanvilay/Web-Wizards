@@ -1,27 +1,133 @@
-const felixPotion = "https://api.potterdb.com/v1/potions/{8a142b68-bee6-47a5-8e9e-fc4ca5ff01e8}"
-const wolfsbanePotion = "https://api.potterdb.com/v1/potions/{7a880071-2c7a-4e51-929f-dafcb1574445}"
-const polyjuicePotion = "https://api.potterdb.com/v1/potions/{0b05a35e-fa4b-4112-b1ae-5eec1c7e286b}"
-const amortentiaPotion = "https://api.potterdb.com/v1/potions/{3f030145-5573-4ee6-a1ce-911bdc5c458d}"
-const veritaserumPotion = "https://api.potterdb.com/v1/potions/{a3c0891b-f1b1-44c4-bbb3-83648c3f075d}"
-
-function potion(){
-    fetch(felixPotion)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(potionsObj){
-            console.log(potionsObj);
-        })
-        const potion = {
-            
-        }
+function potion1(){
+    fetch("https://api.potterdb.com/v1/potions/felix-felicis")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        } 
+        return response.json();
+    })
+    .then(function (response){
+        let data = response.data;
+        const potionNameEl = document.getElementById("potionName1");
+        potionNameEl.textContent = data.attributes.name;
+        const imgEl = document.getElementById("imagePotion1");
+        imgEl.setAttribute("src", data.attributes.image);
+        const descriptionEl = document.getElementById("description1");
+        descriptionEl.textContent = `Effect: ${data.attributes.effect}`;
+        const linkEl = document.getElementById("link1");
+        linkEl.setAttribute("href", data.attributes.wiki);
+    });
 }
 
-potion();
+function potion2(){
+    fetch("https://api.potterdb.com/v1/potions/wound-cleaning-potion")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        } 
+        return response.json();
+    })
+    .then(function (response){
+        let data = response.data;
+        const potionNameEl = document.getElementById("potionName2");
+        potionNameEl.textContent = data.attributes.name;
+        const imgEl = document.getElementById("imagePotion2");
+        imgEl.setAttribute("src", data.attributes.image);
+        const descriptionEl = document.getElementById("description2")
+        descriptionEl.textContent = `Effect: ${data.attributes.effect}`;
+        const linkEl = document.getElementById("link2");
+        linkEl.setAttribute("href", data.attributes.wiki);
+    });
+}
 
+function potion3(){
+    fetch("https://api.potterdb.com/v1/potions/polyjuice-potion")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        } 
+        return response.json();
+    })
+    .then(function (response){
+        let data = response.data;
+        const potionNameEl = document.getElementById("potionName3");
+        potionNameEl.textContent = data.attributes.name;
+        const imgEl = document.getElementById("imagePotion3");
+        imgEl.setAttribute("src", data.attributes.image);
+        const descriptionEl = document.getElementById("description3")
+        descriptionEl.textContent = `Effect: ${data.attributes.effect}`;
+        const linkEl = document.getElementById("link3");
+        linkEl.setAttribute("href", data.attributes.wiki);
+    });
+}
 
-// felix id: 8a142b68-bee6-47a5-8e9e-fc4ca5ff01e8 
-// "id":"7a880071-2c7a-4e51-929f-dafcb1574445" wolfsbane potion
-//  "id": "0b05a35e-fa4b-4112-b1ae-5eec1c7e286b", polyjuice potion
-// "id": "3f030145-5573-4ee6-a1ce-911bdc5c458d" amortentia
-// "id": "a3c0891b-f1b1-44c4-bbb3-83648c3f075d", Veritaserum
+function potion4(){
+    fetch("https://api.potterdb.com/v1/potions/amortentia")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        } 
+        return response.json();
+    })
+    .then(function (response){
+        let data = response.data;
+        const potionNameEl = document.getElementById("potionName4");
+        potionNameEl.textContent = data.attributes.name;
+        const imgEl = document.getElementById("imagePotion4");
+        imgEl.setAttribute("src", data.attributes.image);
+        const descriptionEl = document.getElementById("description4")
+        descriptionEl.textContent = `Effect: ${data.attributes.effect}`;
+        const linkEl = document.getElementById("link4");
+        linkEl.setAttribute("href", data.attributes.wiki);
+    });
+}
+
+function potion5(){
+    fetch("https://api.potterdb.com/v1/potions/veritaserum")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        } 
+        return response.json();
+    })
+    .then(function (response){
+        let data = response.data;
+        const potionNameEl = document.getElementById("potionName5");
+        potionNameEl.textContent = data.attributes.name;
+        const imgEl = document.getElementById("imagePotion5");
+        imgEl.setAttribute("src", data.attributes.image);
+        const descriptionEl = document.getElementById("description5")
+        descriptionEl.textContent = `Effect: ${data.attributes.effect}`;
+        const linkEl = document.getElementById("link5");
+        linkEl.setAttribute("href", data.attributes.wiki);
+    });
+}
+
+function potion6(){
+    fetch("https://api.potterdb.com/v1/potions/draught-of-living-death")
+    .then(response => {
+        if(!response.ok){
+            throw new Error("Could not fetch resource");
+        } 
+        return response.json();
+    })
+    .then(function (response){
+        let data = response.data;
+        const potionNameEl = document.getElementById("potionName6");
+        potionNameEl.textContent = data.attributes.name;
+        const imgEl = document.getElementById("imagePotion6");
+        imgEl.setAttribute("src", data.attributes.image);
+        const descriptionEl = document.getElementById("description6")
+        descriptionEl.textContent = `Effect: ${data.attributes.effect}`;
+        const linkEl = document.getElementById("link6");
+        linkEl.setAttribute("href", data.attributes.wiki);
+    });
+}
+
+potion1();
+potion2();
+potion3();
+potion4();
+potion5();
+potion6();
+
