@@ -119,7 +119,8 @@ function checkHouse() {
 
     document.getElementById("sortingHatSuggestion").classList.remove("hidden");
   }
-  sortingHatSuggestion.style.fontSize = "2.2rem";
+
+  sortingHatSuggestion.style.fontSize = "1.8rem";
   randomSpell();
 }
 
