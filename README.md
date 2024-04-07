@@ -10,15 +10,22 @@ The witch or wizard will be able to access a host of information. Using two diff
 
 References:
 
-APIs Used: [Weather](https://www.weatherapi.com/)
+APIs Used: 
 
-           [Harry Potter](https://potterdb.com/)
+[Weather](https://www.weatherapi.com/)
+           
+[Harry Potter](https://potterdb.com/)
 
-Custom CSS: tailwind
 
-            daisyUI
 
-            Font Awesome
+Custom CSS: 
+
+tailwind
+
+daisyUI
+
+Font Awesome
+
 
 
 Screenshots:
