@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Show the modal
   document.getElementById("letterModal").classList.remove("hidden");
+  document.getElementById("spell").classList.add("hidden");
 
   // Close modal functionality
   document
@@ -17,6 +18,8 @@ const imageEl = document.getElementById("image");
 
 // Function to pick a random spell
 function randomSpell() {
+  document.getElementById("spell").classList.remove("hidden");
+
   const spellsUrl = "https://api.potterdb.com/v1/spells/";
 
   fetch(spellsUrl)
@@ -34,7 +37,7 @@ function randomSpell() {
         Incantation: randomSpell.attributes.incantation,
         Light: randomSpell.attributes.light,
       };
-      
+
       const randomSpellEl = document.createElement("h3");
       randomSpellEl.textContent = "Random Spell";
       descriptionEl.append(randomSpellEl);

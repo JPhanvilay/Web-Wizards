@@ -1,28 +1,55 @@
-.font-magic {
+/* Add a global reset to remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base font size and font family */
+body {
   font-family: "Harry Potter", cursive;
+  font-size: 16px;
 }
 
-/* Animated Transitions: Add CSS animations to questions */
-.animate__animated {
-  animation-duration: 1s;
+/* Add responsive styles */
+.container {
+  max-width: 800px; /* Limit container width for larger screens */
+  padding: 0 20px; /* Add some padding to the sides */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
-.animate__fadeInUp {
-  animation-name: fadeInUp;
+/* Adjust font size for smaller screens */
+.question-label {
+  font-size: 2rem; /* Adjust as needed */
 }
 
-/* Magical Feedback: Sparkling answer options */
-.magical-answer {
-  background-image: linear-gradient(90deg, #fff, #ffc0cb, #fff);
-  background-size: 200% auto;
-  animation: sparkle 1.5s infinite alternate;
-}
-
-@keyframes sparkle {
-  0% {
-    background-position: 0% center;
+/* Apply different font size for smaller screens */
+@media screen and (max-width: 768px) {
+  .question-label {
+    font-size: 1.5rem;
   }
-  100% {
-    background-position: 100% center;
+}
+
+/* Apply different font size for even smaller screens */
+@media screen and (max-width: 576px) {
+  .question-label {
+    font-size: 1.2rem;
+  }
+}
+
+/* Make the select inputs responsive */
+select {
+  width: 100%; /* Expand to fill the container */
+}
+
+/* Adjust button size for smaller screens */
+button {
+  padding: 10px 20px; /* Increase padding */
+}
+
+/* Apply different button size for smaller screens */
+@media screen and (max-width: 576px) {
+  button {
+    padding: 8px 16px; /* Decrease padding */
   }
 }
