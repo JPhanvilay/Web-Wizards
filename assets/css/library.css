@@ -58,3 +58,21 @@ h1 {
   -webkit-text-fill-color: transparent;
   border: #333399;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

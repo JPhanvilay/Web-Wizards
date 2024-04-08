@@ -18,11 +18,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Font+Magic&display=swap"
     />
-
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body
-    class="bg-gray-100 text-gray-900 min-h-screen bg-contain bg-no-repeat"
+    class="text-gray-900 min-h-screen bg-cover bg-no-repeat"
     style="background-image: url('images/back4.jpg')"
   >
     <div id="flashlight"></div>
@@ -86,7 +85,7 @@
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-900 text-4xl"
               style="
                 background-image: url('images/parchment.png');
-                background-size: contain;
+                background-size: cover;
                 width: 500px;
                 height: 400px;
               "
@@ -133,10 +132,10 @@
       id="questionContainer"
       class="flex justify-center items-center h-screen"
     >
-      <div>
+      <div class="w-full max-w-md mx-auto px-4">
         <h1
           id="question"
-          class="glow-text text-5xl font-bold font-magic mb-4 text-gray-700"
+          class="glow-text text-5xl font-bold font-magic mb-4 text-white"
         >
           Which house do you belong to?
         </h1>
@@ -159,10 +158,8 @@
         <p id="sortingHatSuggestion" class="hidden text-red-500"></p>
       </div>
     </div>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- RandomSpell -->
-    <div class="flex-1 mb-16 mt-8 spell">
+    <div id="spell" class="flex-1 mb-16 mt-8 spell">
       <div id="card" class="flex justify-center">
         <div
           class="grid lg:grid-cols-2 md:w-2/3 mt-5 p-5 border-2 border-gray-200 rounded-lg"
@@ -178,6 +175,8 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
     <script src="assets/javascript/script.js"></script>
