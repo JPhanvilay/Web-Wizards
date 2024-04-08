@@ -8,15 +8,10 @@
     margin-bottom: 2px;
 }
 
-/* #imagePotion1, #imagePotion2, #imagePotion3, #imagePotion4, #imagePotion5{
-    width: 150px;
-    height: 150px;
-} */
 
 .navbar{
     background-color:darkslategrey;
     box-shadow: 0 5px 80px rgba(0,0,0,0.1);
-    /* position: fixed;  */
     color:black;
 }
 
