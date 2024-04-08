@@ -30,7 +30,7 @@ Font Awesome
 
 Screenshots:
 
-[Web-Wizards Landing Page]()
+[Web-Wizards Landing Page](./images/landingpage.jpg)
 
 ![Flying Conditions](./images/weatherpage.jpg)
 
