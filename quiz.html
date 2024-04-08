@@ -23,15 +23,27 @@
     class="bg-gray-100 text-gray-900 min-h-screen bg-cover bg-no-repeat bg-hogwarts-bg"
     style="background-image: url('images/sorting-hat.jpeg')"
   >
-    <a
-      href="index.html"
-      class="fixed bottom-10 right-10 z-10 inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-yellow-200 dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
-    >
-      <span
-        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-        >Back</span
-      >
-    </a>
+  <header>
+    <div class="navbar bg-base-100" style="background-color:darkslategrey" >
+    <div class="navbar-start">
+      <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="weather.html">Quidditch Weather</a></li>
+        <li><a href="library.html">Library</a></li>
+        <li><a href="quiz.html">Sorting Hat</a></li>
+        <li><a href="potions.html">Potions</a></li>
+      </ul>
+      </div>
+    </div>
+    <div class="navbar-center">
+    <a href="index.html" class="btn btn-ghost text-xl">Web Wizard</a>
+      </div>
+    </div>
+  </header>
     <div class="container mx-auto">
       <h1
         class="text-3xl font-bold mb-4 text-center mx-auto text-gray-500 font-magic"

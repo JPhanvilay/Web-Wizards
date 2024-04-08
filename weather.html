@@ -9,11 +9,30 @@
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Give+You+Glory&family=La+Belle+Aurore&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Train+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/weather.css">
-    <title>Document</title>
+    <title>Weather</title>
 </head>
 
 <body class="font-dancing-script">
     <header>
+        <div class="navbar bg-base-100 headerNav">
+        <div class="navbar-start">
+            <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="weather.html">Quidditch Weather</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="quiz.html">Sorting Hat</a></li>
+                <li><a href="potions.html">Potions</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="navbar-center">
+            <a href="index.html" class="btn btn-ghost text-xl">Web Wizard</a>
+        </div>
+        </div>
         <div class="hero min-h-screen bg-base-100" style="background-image: url(assets/images/flying.png)">
             <div class="hero-content text-center">
                 <div class="max-w-md flex flex-col space-y-4">
@@ -54,7 +73,6 @@
             <div class="grid h-auto card bg-base-300 rounded-box place-items-center object-scale-down flex-row p-8"
                 id="forecast">content</div>
         </div>
-        <a href="index.html"><button class="btn btn-outline btn-warning justify-end m-4">Back</button></a>
         <script src="./assets/javascript/weather.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
 </body>
