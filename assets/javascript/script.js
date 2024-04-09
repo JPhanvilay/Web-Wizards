@@ -113,7 +113,7 @@ function checkHouse() {
     houseInput === "ravenclaw" ||
     houseInput === "slytherin"
   ) {
-    const backgroundImageURL = `url("images/${houseInput}.jpeg")`;
+    const backgroundImageURL = `url("images/${houseInput}.png")`;
     document.body.style.backgroundImage = backgroundImageURL;
     questionContainer.style.display = "none";
   } else {
